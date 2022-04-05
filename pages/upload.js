@@ -1,5 +1,4 @@
 import { useState } from "react";
-import {CopyToClipboard} from 'react-copy-to-clipboard';
 /**
  * # MY ACCOUNT GOOGLE PLAY:
  * @see {@link https://play.google.com/store/apps/developer?id=dzino Google Play}
