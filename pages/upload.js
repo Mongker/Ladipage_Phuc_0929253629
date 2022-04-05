@@ -22,7 +22,7 @@ export default function PrivatePage(props) {
         const body = new FormData();
         body.append("file", image);
         body.append("name", 'landing_page');
-        const res = await fetch("http://localhost:1999/api/file/upload", {
+        const res = await fetch('http://103.57.222.215:4040/api/upload', {
             method: "POST",
             body
         })
@@ -49,7 +49,7 @@ export default function PrivatePage(props) {
                             borderRadius: 20,
                             margin: 5,
                         }}>
-                            <a href={`http://localhost:1999/api/file/${data?.fileNameInServer}`}> {data?.fileNameInServer}</a>
+                            <a href={`http://103.57.222.215:4040/api/file/${data?.fileNameInServer}`}> {data?.fileNameInServer}</a>
                         </div>
                     )
                 }
