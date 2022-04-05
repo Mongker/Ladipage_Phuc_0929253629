@@ -8,6 +8,7 @@ export default function PrivatePage(props) {
     const [image, setImage] = useState(null);
     const [data, setData] = useState({});
     const [createObjectURL, setCreateObjectURL] = useState(null);
+    const [name, setName] = useState('landing_page');
 
     const uploadToClient = (event) => {
         if (event.target.files && event.target.files[0]) {
@@ -21,7 +22,7 @@ export default function PrivatePage(props) {
     const uploadToServer = async (event) => {
         const body = new FormData();
         body.append("file", image);
-        body.append("name", 'landing_page');
+        body.append("name_key", name);
         const res = await fetch('http://103.57.222.215:4040/api/file/upload', {
             method: "POST",
             body
@@ -61,6 +62,9 @@ export default function PrivatePage(props) {
                 >
                     Send to server
                 </button>
+                <div>
+                    <input type="text" name="myImage" onChange={(event => setName(event.target.value))} />
+                </div>
             </div>
 
         </div>
