@@ -148,7 +148,6 @@ a {
   width: 120px;
   height: 120px;
   cursor: pointer;
-  z-index: 11;
   -webkit-backface-visibility: hidden;
   -webkit-transform: translateZ(0);
   transition: visibility 0.5s;
@@ -163,7 +162,6 @@ a {
   width: 120px;
   height: 120px;
   cursor: pointer;
-  z-index: 11;
   -webkit-backface-visibility: hidden;
   -webkit-transform: translateZ(0);
   transition: visibility 0.5s;
@@ -253,7 +251,6 @@ a {
   cursor: pointer;
   transition: all 0.8s;
   -webkit-transition: all 0.8s;
-  z-index: 9;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.1);
   border-radius: 50px !important;
   right: 43px;
@@ -417,7 +414,6 @@ a {
 
 .menu {
   position: fixed;
-  z-index: 10;
   top: 150px;
   bottom: 0;
   min-height: 100%;
@@ -526,7 +522,6 @@ a {
   content: "";
   width: 100%;
   height: 30%;
-  z-index: 999;
 }
 #banner video,
 #banner img {
@@ -728,7 +723,6 @@ a {
   content: "";
   width: 100%;
   height: 54%;
-  z-index: 2;
 }
 #sectionSlide::after {
   position: absolute;
@@ -741,14 +735,12 @@ a {
   content: "";
   width: 100%;
   height: 59%;
-  z-index: 1;
 }
 #sectionSlide .slideContent {
   position: absolute;
   top: 60px;
   left: 0;
   width: 100%;
-  z-index: 4;
 }
 #sectionSlide .slideContent .textSlide {
   padding: 0px 140px 30px 140px;
@@ -893,7 +885,6 @@ a {
 .bgrleaves {
   position: absolute;
   width: 15%;
-  z-index: 999;
 }
 
 .leavesTop {
@@ -1966,4 +1957,7 @@ a {
   -moz-animation: my 700ms infinite;
   -o-animation: my 700ms infinite;
   animation: my 700ms infinite;
+}
+.ifc {
+  position: absolute; top: -1000px; z-index: 1000; display: flex
 }

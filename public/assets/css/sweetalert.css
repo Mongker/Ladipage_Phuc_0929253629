@@ -412,7 +412,6 @@ body.stop-scrolling {
   position: absolute;
   left: 28px;
   top: 8px;
-  z-index: 1;
   transform: rotate(-45deg);
 }
 .sweet-alert .sa-icon.sa-success .sa-line {

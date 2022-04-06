@@ -38,6 +38,15 @@ function RegistrationViews() {
                                 />
                             </div>
                             <div className="col-lg-6 formGroup">
+                                <label htmlFor="">Email</label>
+                                <input
+                                    type="text"
+                                    id="email"
+                                    name="email"
+                                    className="form-control"
+                                />
+                            </div>
+                            <div className="col-lg-6 formGroup">
                                 <label htmlFor="">Số điện thoại</label>
                                 <input
                                     type="text"
@@ -46,9 +55,27 @@ function RegistrationViews() {
                                     className="form-control"
                                 />
                             </div>
+                            <div className="col-lg-6 formGroup">
+                                <label htmlFor="">Nơi sinh sống</label>
+                                <input
+                                    type="text"
+                                    id="address"
+                                    name="address"
+                                    className="form-control"
+                                />
+                            </div>
+                            <div className="col-12 formGroup">
+                                <label htmlFor="">Tỉnh thành</label>
+                                <input
+                                    type="text"
+                                    id="province"
+                                    name="province"
+                                    className="form-control"
+                                />
+                            </div>
                         </div>
                         <div className="btnSubmit btnStyle">
-                            <button type="button" id="btnSubmit" onClick={() => {}}>
+                            <button type="button" id="btnSubmit">
                                 Đăng ký ngay <i className="fas fa-arrow-right" />
                             </button>
                         </div>

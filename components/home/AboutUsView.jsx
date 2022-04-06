@@ -17,41 +17,70 @@ import React from 'react';
 AboutUs.propTypes = {};
 AboutUs.defaultProps = {};
 function AboutUs() {
-    return(
-        <section className="fw" id="aboutUs">
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-8 formCol">
-                        <img className="img-fluid" src="/assets/images/imgAbout.png" alt=""/>
-                    </div>
-                    <div className="col-lg-4 formCol aboutContent">
-                        <h5 className="title colortt1">Sở hữu căn hộ <br /> KHOÁNG TRỊ LIỆU ĐÍCH THỰC TẠI
-                            GIA <br /> tiên phong tại Việt Nam
-                        </h5>
-                        <p>Tổ hợp nghỉ dưỡng trị liệu sức khỏe bằng khoáng nóng tự nhiên Apec Mandala Retreats Kim
-                            Bôi là dự án nằm
-                            trong chiến
-                            lược thực hiện sứ mệnh chăm sóc sức khỏe người Việt một cách toàn diện của Tập đoàn
-                            Apec.</p>
-                        <p>
-                            Nằm trên thủ phủ khoáng nóng quý giá nhất Miền Bắc tại Hòa Bình, mặt trước là cánh
-                            đồng bát ngát, phía sau
-                            được bao phủ
-                            bởi những dãy núi đá hùng vỹ, APEC Mandala Retreats Kim Bôi như một thung lũng thơ
-                            mộng hữu tình giữa
-                            thiên nhiên hoang
-                            sơ. Bước chân vào không gian của Mandala, chủ nhân hoàn toàn đắm mình trong những dải
-                            xanh thiên nhiên
-                            tuyệt mỹ. Đặc
-                            biệt, toàn bộ các căn hộ của dự án đều sở hữu bể bơi khoáng nóng dẫn từ nguồn khoáng
-                            tự nhiên tới từng
-                            phòng, mang lại
-                            cảm giác riêng tư - "riêng một khoảng trời, riêng một đẳng cấp."
-                        </p>
-                    </div>
+    return (
+        <section className="fw" id="registration">
+            <div className="row">
+                <div className="col-lg-6 pd0">
+                    <video
+                        width="100%"
+                        height="100%"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        src="http://localhost:1999/api/file/landing_page/2-4-2022/m7KRU-Sunflowers---59483.mp4"
+                    />
+                    {/*<iframe*/}
+                    {/*    width="100%"*/}
+                    {/*    height="100%"*/}
+                    {/*    src="https://www.youtube.com/embed/VdBZNAOHYj4"*/}
+                    {/*    title="YouTube video player"*/}
+                    {/*    frameBorder="0"*/}
+                    {/*    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"*/}
+                    {/*    allowFullScreen*/}
+                    {/*/>*/}
+                    {/*<img*/}
+                    {/*    className="img-fluid"*/}
+                    {/*    src="/assets/images/imgAbout.png"*/}
+                    {/*    alt=""*/}
+                    {/*    style={{ height: 500 }}*/}
+                    {/*/>*/}
+                </div>
+                <div className="col-lg-6 pd0 contentRegistration">
+                    <h5 className="title coloreffect">
+                        ĐĂNG KÝ NHẬN BẢNG GIÁ, CHÍNH SÁCH VÀ TIẾN ĐỘ DỰ ÁN
+                    </h5>
+                    <form method="POST">
+                        <div className="row">
+                            <div className="col-lg-6 formGroup">
+                                <label htmlFor="">Họ và tên</label>
+                                <input
+                                    type="text"
+                                    id="fullname"
+                                    name="fullname"
+                                    className="form-control"
+                                />
+                            </div>
+                            <div className="col-lg-6 formGroup">
+                                <label htmlFor="">Số điện thoại</label>
+                                <input
+                                    type="text"
+                                    id="phonenumber"
+                                    name="phonenumber"
+                                    className="form-control"
+                                />
+                            </div>
+                        </div>
+                        <div className="btnSubmit btnStyle">
+                            <button type="button" id="btnSubmit" onClick={() => {}}>
+                                Đăng ký ngay <i className="fas fa-arrow-right" />
+                            </button>
+                        </div>
+                        <p id="message" />
+                    </form>
                 </div>
             </div>
-            <img className="bgrAboutus img-fluid bgr" src="/assets/images/bgr1.png" alt=""/>
+            <img className="bgrAboutus img-fluid bgr" src="/assets/images/bgr1.png" alt="" />
         </section>
     );
 }

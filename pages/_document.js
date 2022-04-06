@@ -21,6 +21,7 @@ export default function Document() {
             </Head>
             <body>
                 <Main />
+                <div id={'web_app'} />
                 <NextScript />
             </body>
         </Html>

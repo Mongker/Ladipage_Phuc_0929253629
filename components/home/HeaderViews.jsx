@@ -15,7 +15,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-function HeaderView() {
+function HeaderView({ setIsOpen }) {
     return (
         <header id="header">
             <div className="headerTop">
@@ -35,6 +35,13 @@ function HeaderView() {
                                 />
                             </a>
                         </h1>
+                        <a
+                            onClick={() => setIsOpen(true)}
+                            className="test"
+                            style={{ color: 'red', cursor: 'pointer' }}
+                        >
+                            Đăng ký ngay
+                        </a>
                         <div className="toggleMenu">
                             <span className="mobile_btn"></span>
                         </div>
