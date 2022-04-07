@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import Head from 'next/head';
 import BannerView from '../components/home/Banner';
 import LocationView from '../components/home/LocationViews';
@@ -10,9 +10,15 @@ import ProductTap from '../components/home/Product Tap';
 import FooterView from '../components/home/Footer';
 import NewsViews from '../components/home/NewsViews';
 import Partner from '../components/home/Partner';
-import RegistrationViews from '../components/home/RegistrationViews';
+// import RegistrationViews from '../components/home/RegistrationViews';
+import dynamic from 'next/dynamic';
+const ModalRegistration = dynamic(import('../components/modal/ModalRegistration'));
 
 export default function Home() {
+    const [isOpen, _setIsOpen] = useState(false);
+    const setIsOpen = useCallback((value) => {
+        _setIsOpen(value);
+    }, []);
     return (
         <React.Fragment>
             <Head>
@@ -56,7 +62,7 @@ export default function Home() {
                         <img className="img-fluid" src="/assets/images/scroll.png" alt="" />
                     </div>
                 </div>
-                <HeaderView />
+                <HeaderView setIsOpen={setIsOpen} />
                 <BannerView />
                 <AboutUs />
                 <OverView />
@@ -65,8 +71,10 @@ export default function Home() {
                 <ProductTap />
                 <NewsViews />
                 <Partner />
-                <RegistrationViews />
+                {/*<RegistrationViews />*/}
                 <FooterView />
+                <ModalRegistration isOpen={isOpen} setIsOpen={setIsOpen} />
+                <div className={'ifc'} />
             </div>
         </React.Fragment>
     );

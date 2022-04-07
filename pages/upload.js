@@ -56,7 +56,7 @@ export default function PrivatePage(props) {
                             }}
                         >
                             <a
-                                href={`http://localhost:1999/api/file/${data?.fileNameInServer}`}
+                                href={`http://localhost:1999${data?.fileNameInServer}`}
                                 target="_blank"
                             >
                                 {data?.fileNameInServer}
@@ -66,7 +66,8 @@ export default function PrivatePage(props) {
                 )}
                 <input type="file" name="myImage" onChange={uploadToClient} />
                 <CopyToClipboard
-                    text={`http://localhost:1999/api/file/${data?.fileNameInServer}`}
+                    text={`http://localhost:1999
+                    ${data?.fileNameInServer}`}
                     onCopy={() => alert('Copy thành công')}
                 >
                     <button className="btn btn-primary">Copy link</button>

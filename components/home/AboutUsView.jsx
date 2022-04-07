@@ -28,7 +28,7 @@ function AboutUs() {
                         loop
                         muted
                         playsInline
-                        src="http://localhost:1999/api/file/landing_page/2-4-2022/m7KRU-Sunflowers---59483.mp4"
+                        src="http://localhost:1999/api/file/start/6-4-2022/pn8oa-Cat---66004.mp4"
                     />
                     {/*<iframe*/}
                     {/*    width="100%"*/}
