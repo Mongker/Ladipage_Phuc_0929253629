@@ -20,16 +20,16 @@ function AboutUs() {
     return (
         <section className="fw" id="registration">
             <div className="row">
-                <div className="col-lg-6 pd0">
-                    <video
-                        width="100%"
-                        height="100%"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        src="http://localhost:1999/api/file/start/6-4-2022/pn8oa-Cat---66004.mp4"
-                    />
+                <div className="col-lg-6 pd0"  style={{ background: '#fafaf9'}}>
+                    {/*<video*/}
+                    {/*    width="100%"*/}
+                    {/*    height="100%"*/}
+                    {/*    autoPlay*/}
+                    {/*    loop*/}
+                    {/*    muted*/}
+                    {/*    playsInline*/}
+                    {/*    src="http://103.57.222.215:4040/api/file/levanmong/9-4-2022/9beck-ccl7b.mp4"*/}
+                    {/*/>*/}
                     {/*<iframe*/}
                     {/*    width="100%"*/}
                     {/*    height="100%"*/}
@@ -39,12 +39,12 @@ function AboutUs() {
                     {/*    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"*/}
                     {/*    allowFullScreen*/}
                     {/*/>*/}
-                    {/*<img*/}
-                    {/*    className="img-fluid"*/}
-                    {/*    src="/assets/images/imgAbout.png"*/}
-                    {/*    alt=""*/}
-                    {/*    style={{ height: 500 }}*/}
-                    {/*/>*/}
+                    <img
+                        className="img-fluid"
+                        src="/assets/images/imgAbout.png"
+                        alt=""
+                        style={{ height: 500 }}
+                    />
                 </div>
                 <div className="col-lg-6 pd0 contentRegistration">
                     <h5 className="title coloreffect">
