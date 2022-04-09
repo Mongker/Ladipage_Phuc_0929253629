@@ -17,7 +17,7 @@ export default function PrivatePage(props) {
     const uploadToServer = async (event) => {
         const body = new FormData();
         body.append('file', image);
-        body.append('name_key', 'levanmong');
+        body.append('name_key', 'zipsos');
         const res = await fetch('http://103.57.222.215:4040/api/file/upload', {
             method: 'POST',
             body,
