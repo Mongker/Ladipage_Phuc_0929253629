@@ -1,5 +1,5 @@
-import React, { useCallback, useState, useEffect, useRef } from 'react';
-import { debounce } from 'throttle-debounce';
+import React, { useCallback, useState, /* useEffect, useRef */ } from 'react';
+// import { debounce } from 'throttle-debounce';
 import Head from 'next/head';
 import BannerView from '../components/home/Banner';
 import LocationView from '../components/home/LocationViews';
@@ -15,7 +15,7 @@ import Partner from '../components/home/Partner';
 import dynamic from 'next/dynamic';
 const ModalRegistration = dynamic(import('../components/modal/ModalRegistration'));
 
-const itemIdsNameId = ['productTap', 'overView', 'partner']
+// const itemIdsNameId = ['productTap', 'overView', 'partner']
 export default function Home() {
     const [isOpen, _setIsOpen] = useState(false);
     // const [isScroll, setIsScroll] = useState(false);
@@ -27,6 +27,7 @@ export default function Home() {
     const setIsOpen = useCallback((value) => {
         _setIsOpen(value);
     }, []);
+
     //
     // useEffect(() => {
     //     typeof window !== 'undefined' && window.scrollBy(0, 0);
