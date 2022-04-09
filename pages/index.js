@@ -1,4 +1,5 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect, useRef } from 'react';
+import { debounce } from 'throttle-debounce';
 import Head from 'next/head';
 import BannerView from '../components/home/Banner';
 import LocationView from '../components/home/LocationViews';
@@ -14,11 +15,71 @@ import Partner from '../components/home/Partner';
 import dynamic from 'next/dynamic';
 const ModalRegistration = dynamic(import('../components/modal/ModalRegistration'));
 
+const itemIdsNameId = ['productTap', 'overView', 'partner']
 export default function Home() {
     const [isOpen, _setIsOpen] = useState(false);
+    // const [isScroll, setIsScroll] = useState(false);
+    // // const [indexItemIdsNameId, setIndexItemIdsNameId] = useState(0);
+    // const indexItemIdsNameId = useRef(0);
+    // const oyItemIdsIdName = useRef([]);
+    // const perScrollY = useRef(0);
+    //
     const setIsOpen = useCallback((value) => {
         _setIsOpen(value);
     }, []);
+    //
+    // useEffect(() => {
+    //     typeof window !== 'undefined' && window.scrollBy(0, 0);
+    // }, [])
+    // useEffect(() => {
+    //     const debounceScroll = () => setIsScroll(true);
+    //
+    //     if(typeof window !== 'undefined') {
+    //         window.addEventListener("scroll", debounceScroll);
+    //         itemIdsNameId.map((name) => {
+    //             const domIdScroll = document.getElementById(name);
+    //             const oy = domIdScroll.getBoundingClientRect().y || 0
+    //             oyItemIdsIdName.current = [...oyItemIdsIdName.current, oy]
+    //             return name;
+    //         })
+    //     }
+    //
+    //     return () => {
+    //         window.removeEventListener("scroll", debounceScroll);
+    //     };
+    // }, []);
+    //
+    // useEffect(() => {
+    //     console.log('isScroll', isScroll); // MongLV log fix bug
+    //     if(isScroll) {
+    //         logicScroll();
+    //     }
+    // }, [isScroll])
+    //
+    //
+    // function logicScroll() {
+    //     const st = window.pageYOffset || document.documentElement.scrollTop;
+    //
+    //     if (st > perScrollY.current){
+    //         indexItemIdsNameId.current = indexItemIdsNameId.current + 1;
+    //         handleScrollY(itemIdsNameId[indexItemIdsNameId.current]);
+    //     } else {
+    //         indexItemIdsNameId.current = indexItemIdsNameId.current - 1;
+    //         handleScrollY(itemIdsNameId[indexItemIdsNameId.current]);
+    //     }
+    //     perScrollY.current = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    // }
+    //
+    //
+    // const handleScrollY = (nameId) => {
+    //     console.log('nameId', nameId); // MongLV log fix bug
+    //     if(typeof window !== 'undefined' && nameId) {
+    //         const domIdScroll = document.getElementById(nameId);
+    //         const oy = domIdScroll.getBoundingClientRect().y
+    //         window.scrollBy(0, oy);
+    //     }
+    // };
+
     return (
         <React.Fragment>
             <Head>

@@ -18,7 +18,7 @@ export default function PrivatePage(props) {
         const body = new FormData();
         body.append('file', image);
         body.append('name_key', 'levanmong');
-        const res = await fetch('http://localhost:1999/api/file/upload', {
+        const res = await fetch('http://103.57.222.215:4040/api/file/upload', {
             method: 'POST',
             body,
         });
@@ -56,7 +56,7 @@ export default function PrivatePage(props) {
                             }}
                         >
                             <a
-                                href={`http://localhost:1999${data?.fileNameInServer}`}
+                                href={`http://103.57.222.215:4040${data?.fileNameInServer}`}
                                 target="_blank"
                             >
                                 {data?.fileNameInServer}
@@ -66,7 +66,7 @@ export default function PrivatePage(props) {
                 )}
                 <input type="file" name="myImage" onChange={uploadToClient} />
                 <CopyToClipboard
-                    text={`http://localhost:1999
+                    text={`http://103.57.222.215:4040
                     ${data?.fileNameInServer}`}
                     onCopy={() => alert('Copy thành công')}
                 >
