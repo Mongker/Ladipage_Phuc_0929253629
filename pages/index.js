@@ -55,7 +55,38 @@ export default function Home() {
     useEffect(() => {
 
         if(typeof window !== 'undefined') {
-            window.addEventListener('touchmove', debounce(
+
+            window.addEventListener('scroll', debounce(
+                function(event){
+                    const delta = event.wheelDelta / 30 || -event.detail;
+                    // If the user scrolled up, it goes to previous slide, otherwise - to next slide
+                    if(delta < -1) {
+                        xxxx.current = xxxx.current + SCROLL;
+                        handleScrollY(itemIdsNameId[index.current]);
+                    }
+                    else if(delta > 1) {
+                        xxxx.current = xxxx.current - SCROLL;
+                        handleScrollY(itemIdsNameId[index.current]);
+                    }
+                },
+                200
+            ));
+            window.addEventListener('mousewheel', debounce(
+                function(event){
+                    const delta = event.wheelDelta / 30 || -event.detail;
+                    // If the user scrolled up, it goes to previous slide, otherwise - to next slide
+                    if(delta < -1) {
+                        xxxx.current = xxxx.current + SCROLL;
+                        handleScrollY(itemIdsNameId[index.current]);
+                    }
+                    else if(delta > 1) {
+                        xxxx.current = xxxx.current - SCROLL;
+                        handleScrollY(itemIdsNameId[index.current]);
+                    }
+                },
+                200
+            ));
+            window.addEventListener('DOMMouseScroll', debounce(
                 function(event){
                     const delta = event.wheelDelta / 30 || -event.detail;
                     // If the user scrolled up, it goes to previous slide, otherwise - to next slide
