@@ -1278,6 +1278,9 @@ a {
     padding: 0;
   }
 
+  #header {
+    background-color: lightgrey;
+  }
   #header .headerTop .logo img {
     width: 60%;
   }
@@ -1365,6 +1368,7 @@ a {
 
   #sectionSlide {
     padding: 220px 0px 520px;
+    display: none;
   }
   #sectionSlide .bgrSlide {
     display: none;

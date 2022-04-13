@@ -1,5 +1,6 @@
-import React, { useCallback, useState, /* useEffect, useRef */ } from 'react';
-// import { debounce } from 'throttle-debounce';
+import React, {useCallback, useEffect, useState, useRef/* useMemo, useEffect */} from 'react';
+import debounce from 'lodash-es/debounce'
+
 import Head from 'next/head';
 import BannerView from '../components/home/Banner';
 import LocationView from '../components/home/LocationViews';
@@ -12,51 +13,87 @@ import FooterView from '../components/home/Footer';
 import NewsViews from '../components/home/NewsViews';
 import Partner from '../components/home/Partner';
 // import RegistrationViews from '../components/home/RegistrationViews';
+
 import dynamic from 'next/dynamic';
 const ModalRegistration = dynamic(import('../components/modal/ModalRegistration'));
 
-// const itemIdsNameId = ['productTap', 'overView', 'partner']
+const itemIdsNameId = ['banner', 'registration', 'overView', 'location', 'sectionSlide', 'productTap', 'news', 'partner', 'footer'];
+
 export default function Home() {
     const [isOpen, _setIsOpen] = useState(false);
+    const SCROLL = typeof window !== 'undefined' ? window.innerHeight / 1.5 : 500 / 2;
+
     // const [isScroll, setIsScroll] = useState(false);
-    // // const [indexItemIdsNameId, setIndexItemIdsNameId] = useState(0);
-    // const indexItemIdsNameId = useRef(0);
+    // const debouncedScrollHandler = useMemo(() => debounce(() => {
+    //     setIsScroll(false)
+    // }, 1000), []);
+
+    // const [indexItemIdsNameId, setIndexItemIdsNameId] = useState(0);
+    const index = useRef(0);
+    const refElementA  = useRef(null);
+    const xxxx  = useRef(0);
+    const isScroll  = useRef(false);
     // const oyItemIdsIdName = useRef([]);
     // const perScrollY = useRef(0);
-    //
+
     const setIsOpen = useCallback((value) => {
         _setIsOpen(value);
     }, []);
 
+    // const handleScroll = () => {
+    //     if(!isScroll) {
+    //         setIsScroll(truetrue)
+    //     }
     //
+    //     debouncedScrollHandler();
+    // }
+
     // useEffect(() => {
     //     typeof window !== 'undefined' && window.scrollBy(0, 0);
     // }, [])
+
+    useEffect(() => {
+
+        if(typeof window !== 'undefined') {
+            window.addEventListener('mousewheel', debounce(
+                function(event){
+                    const delta = event.wheelDelta / 30 || -event.detail;
+                    //If the user scrolled up, it goes to previous slide, otherwise - to next slide
+                    if(delta < -1) {
+                        xxxx.current = xxxx.current + SCROLL;
+                        handleScrollY(itemIdsNameId[index.current]);
+                    }
+                    else if(delta > 1) {
+                        xxxx.current = xxxx.current - SCROLL;
+                        handleScrollY(itemIdsNameId[index.current]);
+                    }
+                },
+                200
+            ));
+
+            window.addEventListener('keydown', handleKeyDown);
+        }
+
+        return () => {
+            // window.removeEventListener("mousewheel", debounceScroll);
+        };
+    }, []);
+
+    const handleKeyDown = function(e){
+
+        // up slide
+        if(e.keyCode === 38) {
+            xxxx.current = xxxx.current - SCROLL;
+            window.scroll(0, xxxx.current)
+        } else if(e.keyCode === 40) { // down slide
+            xxxx.current = xxxx.current + SCROLL;
+            window.scroll(0, xxxx.current)
+        }
+    }
+
     // useEffect(() => {
-    //     const debounceScroll = () => setIsScroll(true);
-    //
-    //     if(typeof window !== 'undefined') {
-    //         window.addEventListener("scroll", debounceScroll);
-    //         itemIdsNameId.map((name) => {
-    //             const domIdScroll = document.getElementById(name);
-    //             const oy = domIdScroll.getBoundingClientRect().y || 0
-    //             oyItemIdsIdName.current = [...oyItemIdsIdName.current, oy]
-    //             return name;
-    //         })
-    //     }
-    //
-    //     return () => {
-    //         window.removeEventListener("scroll", debounceScroll);
-    //     };
-    // }, []);
-    //
-    // useEffect(() => {
-    //     console.log('isScroll', isScroll); // MongLV log fix bug
-    //     if(isScroll) {
-    //         logicScroll();
-    //     }
+    //     isScroll && logicScroll();
     // }, [isScroll])
-    //
     //
     // function logicScroll() {
     //     const st = window.pageYOffset || document.documentElement.scrollTop;
@@ -70,16 +107,16 @@ export default function Home() {
     //     }
     //     perScrollY.current = st <= 0 ? 0 : st; // For Mobile or negative scrolling
     // }
-    //
-    //
-    // const handleScrollY = (nameId) => {
-    //     console.log('nameId', nameId); // MongLV log fix bug
-    //     if(typeof window !== 'undefined' && nameId) {
-    //         const domIdScroll = document.getElementById(nameId);
-    //         const oy = domIdScroll.getBoundingClientRect().y
-    //         window.scrollBy(0, oy);
-    //     }
-    // };
+    const handleScrollY = () => {
+        if(typeof window !== 'undefined') {
+            // window.scroll(0, xxxx.current)
+            window.scroll({
+                top: xxxx.current,
+                left: 0,
+                behavior: 'smooth'
+            })
+        }
+    };
 
     return (
         <React.Fragment>
@@ -124,6 +161,7 @@ export default function Home() {
                         <img className="img-fluid" src="/assets/images/scroll.png" alt="" />
                     </div>
                 </div>
+                <a id={'id_scroll'} ref={refElementA}/>
                 <HeaderView setIsOpen={setIsOpen} />
                 <BannerView />
                 <AboutUs />
