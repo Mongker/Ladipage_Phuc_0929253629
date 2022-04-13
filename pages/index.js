@@ -55,7 +55,7 @@ export default function Home() {
     useEffect(() => {
 
         if(typeof window !== 'undefined') {
-            window.addEventListener('mousewheel', debounce(
+            window.addEventListener('scroll', debounce(
                 function(event){
                     const delta = event.wheelDelta / 30 || -event.detail;
                     //If the user scrolled up, it goes to previous slide, otherwise - to next slide
