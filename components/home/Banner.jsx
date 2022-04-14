@@ -24,9 +24,11 @@ function BannerView() {
                 <img className="img-fluid" src="/assets/images/banner.jpg" alt="" />
             </div>
             <style jsx>{`
-              .banner {
-                margin-top: 48px;
-              }
+                @media (min-width: 0px) and (max-width: 767px) {
+                    .banner {
+                        margin-top: 48px;
+                    }
+                }
             `}</style>
         </section>
     );
