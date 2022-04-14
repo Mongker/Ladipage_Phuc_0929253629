@@ -33,6 +33,7 @@ function ModalRegistration({ isOpen, setIsOpen }) {
             alignItems: 'center',
             width: window?.innerWidth < 400 ? '100%' : '450px',
             zIndex: 1,
+            border: 'unset',
             backgroundColor: '#073634',
         },
         overlay: {

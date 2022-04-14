@@ -13,14 +13,16 @@
  */
 
 import React from 'react';
+import useAnimation from '../hooks/useAnimation';
 // import PropTypes from 'prop-types';
 
 function NewsViews() {
+    const [refAnimation, isVisible] = useAnimation();
     return (
-        <section className="fw" id="news">
-            <div className="container">
-                <div className="title">Tin tức</div>
-                <div className="slideNews">
+        <section className="fw" id="news" ref={refAnimation}>
+            <div className={`container ${isVisible && 'show_left'}`}>
+                <div className={`title`}>Tin tức</div>
+                <div className={`slideNews`}>
                     <div className="item">
                         <div className="formNews">
                             <div className="imgNews">

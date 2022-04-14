@@ -13,20 +13,22 @@
  */
 
 import React from 'react';
+import useAnimation from '../hooks/useAnimation';
 // import PropTypes from 'prop-types';
 
 function OverView() {
-    return(
-        <section className="fw" id="overView">
-            <img className="img-fluid bgr bgrOverView" src="/assets/images/bgr2.png" alt=""/>
+    const [refAnimation, isVisible]  = useAnimation();
+    return (
+        <section className="fw" id="overView" ref={refAnimation}>
+            <img className="img-fluid bgr bgrOverView" src="/assets/images/bgr2.png" alt="" />
             <div className="overViewContent containerFix">
-                <h5 className="title coloreffect">
-                    TỔ HỢP BẤT ĐỘNG SẢN 5 IN 1: <br /> SỞ HỮU – NGHỈ DƯỠNG – SỨC KHỎE <br /> – TIẾT KIỆM – CAM KẾT LỢI
-                    NHUẬN
+                <h5 className={`title coloreffect ${isVisible && 'show_left'}`}>
+                    TỔ HỢP BẤT ĐỘNG SẢN 5 IN 1: <br /> SỞ HỮU – NGHỈ DƯỠNG – SỨC KHỎE <br /> – TIẾT
+                    KIỆM – CAM KẾT LỢI NHUẬN
                 </h5>
-                <div className="row">
-                    <div className="col-lg-3 formCol">
-                        <div className="row">
+                <div className={`row`}>
+                    <div className={`col-lg-3 formCol ${isVisible && 'show_right'}`}>
+                        <div className={`row ${isVisible & 'show_right'}`}>
                             <div className="data col-lg-12 col-6">
                                 <p>Tổng diện tích</p>
                                 <h6 className="coloreffect">56,859 m2</h6>
@@ -49,9 +51,12 @@ function OverView() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-9 formCol MapOverView">
-                        <img className="img-fluid bgrMapOverView"
-                             src="/assets/images/imgTongquan_white.png" alt=""/>
+                    <div className={`col-lg-9 formCol MapOverView ${isVisible && 'show_right'}`}>
+                        <img
+                            className="img-fluid bgrMapOverView"
+                            src="/assets/images/imgTongquan_white.png"
+                            alt=""
+                        />
                         <div className="row">
                             <div className="col-lg-4 col-md-4 traffic">
                                 <h6>Giao thông</h6>

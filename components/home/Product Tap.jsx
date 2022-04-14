@@ -13,11 +13,13 @@
  */
 
 import React from 'react';
+import useAnimation from '../hooks/useAnimation';
 // import PropTypes from 'prop-types';
 
 function ProductTap() {
+    const [refAnimation, isVisible] = useAnimation();
     return (
-        <section className="fw" id="productTap">
+        <section className="fw" id="productTap" ref={refAnimation}>
             <img
                 className="img-fluid bgrleaves leavesTop"
                 src="/assets/images/lalefttop.png"
@@ -34,7 +36,7 @@ function ProductTap() {
                 alt=""
             />
             <div className="container">
-                <div className="titleCenter">
+                <div className={`titleCenter ${isVisible && 'show_left'}`}>
                     <h5 className="title colortt1">
                         Mua một sở hữu chuỗi - Tặng 90 đêm nghỉ dưỡng 5* <br /> áp dụng trên toàn
                         quốc
@@ -50,7 +52,7 @@ function ProductTap() {
                         Bái...
                     </p>
                 </div>
-                <div className="contentTap">
+                <div className={`contentTap ${isVisible && 'show_right'}`}>
                     <ul className="nav nav-tabs" role="tablist">
                         <li className="nav-item">
                             <a

@@ -1289,13 +1289,13 @@ a {
     height: 100%;
   }
 
-  #aboutUs {
+  #registration {
     padding: 30px 0px 247px;
   }
-  #aboutUs .bgrAboutus {
+  #registration .bgrAboutus {
     display: none;
   }
-  #aboutUs::before {
+  #registration::before {
     display: block;
     height: 46%;
   }
@@ -1522,13 +1522,13 @@ a {
     line-height: 25px;
   }
 
-  #aboutUs {
+  #registration {
     padding: 30px 0px 247px;
   }
-  #aboutUs .bgrAboutus {
+  #registration .bgrAboutus {
     display: none;
   }
-  #aboutUs::before {
+  #registration::before {
     display: block;
     height: 35%;
   }
@@ -1707,7 +1707,7 @@ a {
     height: 100%;
   }
 
-  #aboutUs::before {
+  #registration::before {
     height: 38%;
   }
 
@@ -1796,7 +1796,7 @@ a {
     font-size: 16px;
   }
 
-  #aboutUs {
+  #registration {
     padding: 60px 0px 255px;
   }
 
@@ -1873,10 +1873,10 @@ a {
     font-size: 22px;
   }
 
-  #aboutUs {
+  #registration {
     padding: 60px 0px 255px;
   }
-  #aboutUs .aboutContent p {
+  #registration .aboutContent p {
     font-size: 15px;
   }
 

@@ -13,15 +13,17 @@
  */
 
 import React from 'react';
+import useAnimation from '../hooks/useAnimation';
 // import PropTypes from 'prop-types';
 
 function SectionSlideViews() {
+    const [refAnimation, isVisible] = useAnimation();
     return (
-        <section className="fw" id="sectionSlide">
+        <section className="fw" id="sectionSlide" ref={refAnimation}>
             <img className="img-fluid bgrSlide bgr" src="/assets/images/bgrslide.jpg" alt="" />
-            <div className="slideContent">
-                <div className="row">
-                    <div className="col-lg-6 textSlide">
+            <div className={`slideContent`}>
+                <div className={`row ${isVisible && 'show_left'}`}>
+                    <div className={`col-lg-6 textSlide`}>
                         <h5 className="title coloreffect">
                             Ân hạn nợ gốc vô thời hạn - Chỉ 50% GTCH để nhận bàn giao
                         </h5>
@@ -92,8 +94,8 @@ function SectionSlideViews() {
                         </div>
                     </div>
                 </div>
-                <div className="row row_reverse">
-                    <div className="col-lg-6 textSlide">
+                <div className={`row row_reverse ${isVisible && 'show_right'}`}>
+                    <div className={`col-lg-6 textSlide ${isVisible && 'show_right'}`}>
                         <h5 className="title coloreffect">
                             APEC MANDALA – THIÊN ĐƯỜNG NGHỈ DƯỠNG & SỨC KHỎE
                         </h5>

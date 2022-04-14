@@ -13,19 +13,23 @@
  */
 
 import React from 'react';
+import useAnimation from '../hooks/useAnimation';
 // import PropTypes from 'prop-types';
 
 function Partner() {
+    const [refAnimation, isVisible] = useAnimation();
     return (
-        <section className="fw" id="partner">
+        <section className="fw" id="partner" ref={refAnimation}>
             <img
                 className="img-fluid bgrleaves leavesRightBot"
                 src="/assets/images/larightBot.png"
                 alt=""
             />
             <div className="container">
-                <h5 className="title colortt1">Đối tác phát triển dự án</h5>
-                <div className="slidePartner">
+                <h5 className={`title colortt1 ${isVisible && 'show_right'}`}>
+                    Đối tác phát triển dự án
+                </h5>
+                <div className={`slidePartner`}>
                     <div className="item">
                         <a href="#">
                             <img className="img-fluid" src="/assets/images/apec.png" alt="" />

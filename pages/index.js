@@ -52,90 +52,90 @@ export default function Home() {
     //     typeof window !== 'undefined' && window.scrollBy(0, 0);
     // }, [])
 
-    useEffect(() => {
-
-        if(typeof window !== 'undefined') {
-
-            window.addEventListener('scroll', debounce(
-                function(event){
-                    const delta = event.wheelDelta / 30 || -event.detail;
-                    // If the user scrolled up, it goes to previous slide, otherwise - to next slide
-                    if(delta < -1) {
-                        xxxx.current = xxxx.current + SCROLL;
-                        handleScrollY(itemIdsNameId[index.current]);
-                    }
-                    else if(delta > 1) {
-                        xxxx.current = xxxx.current - SCROLL;
-                        handleScrollY(itemIdsNameId[index.current]);
-                    }
-                },
-                200
-            ));
-            window.addEventListener('mousewheel', debounce(
-                function(event){
-                    const delta = event.wheelDelta / 30 || -event.detail;
-                    // If the user scrolled up, it goes to previous slide, otherwise - to next slide
-                    if(delta < -1) {
-                        xxxx.current = xxxx.current + SCROLL;
-                        handleScrollY(itemIdsNameId[index.current]);
-                    }
-                    else if(delta > 1) {
-                        xxxx.current = xxxx.current - SCROLL;
-                        handleScrollY(itemIdsNameId[index.current]);
-                    }
-                },
-                200
-            ));
-            window.addEventListener('DOMMouseScroll', debounce(
-                function(event){
-                    const delta = event.wheelDelta / 30 || -event.detail;
-                    // If the user scrolled up, it goes to previous slide, otherwise - to next slide
-                    if(delta < -1) {
-                        xxxx.current = xxxx.current + SCROLL;
-                        handleScrollY(itemIdsNameId[index.current]);
-                    }
-                    else if(delta > 1) {
-                        xxxx.current = xxxx.current - SCROLL;
-                        handleScrollY(itemIdsNameId[index.current]);
-                    }
-                },
-                200
-            ));
-            window.addEventListener('touchmove', debounce(
-                function(event){
-                    const delta = event.wheelDelta / 30 || -event.detail;
-                    // If the user scrolled up, it goes to previous slide, otherwise - to next slide
-                    if(delta < -1) {
-                        xxxx.current = xxxx.current + SCROLL;
-                        handleScrollY(itemIdsNameId[index.current]);
-                    }
-                    else if(delta > 1) {
-                        xxxx.current = xxxx.current - SCROLL;
-                        handleScrollY(itemIdsNameId[index.current]);
-                    }
-                },
-                200
-            ));
-
-            window.addEventListener('keydown', handleKeyDown);
-        }
-
-        return () => {
-            // window.removeEventListener("mousewheel", debounceScroll);
-        };
-    }, []);
-
-    const handleKeyDown = function(e){
-
-        // up slide
-        if(e.keyCode === 38) {
-            xxxx.current = xxxx.current - SCROLL;
-            window.scroll(0, xxxx.current)
-        } else if(e.keyCode === 40) { // down slide
-            xxxx.current = xxxx.current + SCROLL;
-            window.scroll(0, xxxx.current)
-        }
-    }
+    // useEffect(() => {
+    //
+    //     if(typeof window !== 'undefined') {
+    //
+    //         window.addEventListener('scroll', debounce(
+    //             function(event){
+    //                 const delta = event.wheelDelta / 30 || -event.detail;
+    //                 // If the user scrolled up, it goes to previous slide, otherwise - to next slide
+    //                 if(delta < -1) {
+    //                     xxxx.current = xxxx.current + SCROLL;
+    //                     handleScrollY(itemIdsNameId[index.current]);
+    //                 }
+    //                 else if(delta > 1) {
+    //                     xxxx.current = xxxx.current - SCROLL;
+    //                     handleScrollY(itemIdsNameId[index.current]);
+    //                 }
+    //             },
+    //             200
+    //         ));
+    //         window.addEventListener('mousewheel', debounce(
+    //             function(event){
+    //                 const delta = event.wheelDelta / 30 || -event.detail;
+    //                 // If the user scrolled up, it goes to previous slide, otherwise - to next slide
+    //                 if(delta < -1) {
+    //                     xxxx.current = xxxx.current + SCROLL;
+    //                     handleScrollY(itemIdsNameId[index.current]);
+    //                 }
+    //                 else if(delta > 1) {
+    //                     xxxx.current = xxxx.current - SCROLL;
+    //                     handleScrollY(itemIdsNameId[index.current]);
+    //                 }
+    //             },
+    //             200
+    //         ));
+    //         window.addEventListener('DOMMouseScroll', debounce(
+    //             function(event){
+    //                 const delta = event.wheelDelta / 30 || -event.detail;
+    //                 // If the user scrolled up, it goes to previous slide, otherwise - to next slide
+    //                 if(delta < -1) {
+    //                     xxxx.current = xxxx.current + SCROLL;
+    //                     handleScrollY(itemIdsNameId[index.current]);
+    //                 }
+    //                 else if(delta > 1) {
+    //                     xxxx.current = xxxx.current - SCROLL;
+    //                     handleScrollY(itemIdsNameId[index.current]);
+    //                 }
+    //             },
+    //             200
+    //         ));
+    //         window.addEventListener('touchmove', debounce(
+    //             function(event){
+    //                 const delta = event.wheelDelta / 30 || -event.detail;
+    //                 // If the user scrolled up, it goes to previous slide, otherwise - to next slide
+    //                 if(delta < -1) {
+    //                     xxxx.current = xxxx.current + SCROLL;
+    //                     handleScrollY(itemIdsNameId[index.current]);
+    //                 }
+    //                 else if(delta > 1) {
+    //                     xxxx.current = xxxx.current - SCROLL;
+    //                     handleScrollY(itemIdsNameId[index.current]);
+    //                 }
+    //             },
+    //             200
+    //         ));
+    //
+    //         window.addEventListener('keydown', handleKeyDown);
+    //     }
+    //
+    //     return () => {
+    //         // window.removeEventListener("mousewheel", debounceScroll);
+    //     };
+    // }, []);
+    //
+    // const handleKeyDown = function(e){
+    //
+    //     // up slide
+    //     if(e.keyCode === 38) {
+    //         xxxx.current = xxxx.current - SCROLL;
+    //         window.scroll(0, xxxx.current)
+    //     } else if(e.keyCode === 40) { // down slide
+    //         xxxx.current = xxxx.current + SCROLL;
+    //         window.scroll(0, xxxx.current)
+    //     }
+    // }
 
     // useEffect(() => {
     //     isScroll && logicScroll();
