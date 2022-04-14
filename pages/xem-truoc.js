@@ -81,6 +81,39 @@ export default function Home() {
                 <ModalRegistration isOpen={isOpen} setIsOpen={setIsOpen} />
                 <div className={'ifc'} />
             </div>
+            <style jsx global>{`
+                .show_left {
+                    position: relative;
+                    animation-name: move_to_left;
+                    animation-duration: 1s;
+                    animation-iteration-count: 1;
+                }
+
+                .show_right {
+                    position: relative;
+                    animation-name: move_to_right;
+                    animation-duration: 1s;
+                    animation-iteration-count: 1;
+                }
+
+                @keyframes move_to_left {
+                    from {
+                        left: -500px;
+                    }
+                    to {
+                        left: 0;
+                    }
+                }
+
+                @keyframes move_to_right {
+                    from {
+                        right: -500px;
+                    }
+                    to {
+                        right: 0;
+                    }
+                }
+            `}</style>
         </React.Fragment>
     );
 }
