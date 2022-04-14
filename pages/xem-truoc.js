@@ -12,7 +12,7 @@ import ProductTap from '../components/home/Product Tap';
 import FooterView from '../components/home/Footer';
 import NewsViews from '../components/home/NewsViews';
 import Partner from '../components/home/Partner';
-import RegistrationViews from '../components/home/RegistrationViews';
+// import RegistrationViews from '../components/home/RegistrationViews';
 
 import dynamic from 'next/dynamic';
 const ModalRegistration = dynamic(import('../components/modal/ModalRegistration'));
@@ -76,7 +76,7 @@ export default function Home() {
                 <ProductTap />
                 <NewsViews />
                 <Partner />
-                <RegistrationViews />
+                {/*<RegistrationViews />*/}
                 <FooterView />
                 <ModalRegistration isOpen={isOpen} setIsOpen={setIsOpen} />
                 <div className={'ifc'} />

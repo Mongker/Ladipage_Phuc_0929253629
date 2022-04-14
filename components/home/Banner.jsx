@@ -18,11 +18,16 @@ import React from 'react';
 function BannerView() {
     return (
         <section className="fw" id="banner">
-            <div className="video-container">
+            <div className="video-container banner">
                 {/*<video width="100%" autoPlay loop muted playsInline*/}
                 {/*       src="./assets/images/Voice_TVC 15s Kim Boi.mp4" />*/}
                 <img className="img-fluid" src="/assets/images/banner.jpg" alt="" />
             </div>
+            <style jsx>{`
+              .banner {
+                margin-top: 48px;
+              }
+            `}</style>
         </section>
     );
 }
