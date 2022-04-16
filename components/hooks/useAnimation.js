@@ -1,13 +1,10 @@
-import {useState, useEffect, useRef} from 'react';
-import useOnScreen from "./useOnScreen";
+import { useState, useEffect, useRef } from 'react';
+import useOnScreen from './useOnScreen';
 
-const useAnimation = () => {
+const useAnimation = (time) => {
     const refAnimation = useRef(null);
-    const isVisible = useOnScreen(refAnimation);
-    return [
-        refAnimation,
-        isVisible,
-    ]
+    const isVisible = useOnScreen(refAnimation, '0px', time);
+    return [refAnimation, isVisible];
 };
 
 export default useAnimation;

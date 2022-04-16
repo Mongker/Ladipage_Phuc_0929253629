@@ -187,12 +187,16 @@ import React from 'react';
 AboutUs.propTypes = {};
 AboutUs.defaultProps = {};
 function AboutUs() {
-    const [refAnimation, isVisible] = useAnimation();
+    const [refAnimation, isVisible] = useAnimation(1000);
     return (
         <section className="fw" id="aboutUs" ref={refAnimation}>
             <div className="container">
                 <div className="row">
-                    <div className={`col-lg-8 formCol ${isVisible && 'show_left'}`}>
+                    <div
+                        className={`col-lg-8 formCol ${
+                            isVisible ? 'show_left' : 'display_none_left'
+                        }`}
+                    >
                         {/*<img className="img-fluid" src="/assets/images/imgAbout.png" alt="" />*/}
                         {
                             <iframe
@@ -203,13 +207,15 @@ function AboutUs() {
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
-                                className={`${isVisible ? 'show_left' : ''} border_radius`}
+                                className={`${
+                                    isVisible ? 'show_left' : 'display_none_left'
+                                } border_radius`}
                             />
                         }
                     </div>
                     <div
                         className={`col-lg-4 formCol aboutContent contentRegistration1 border_radius ${
-                            isVisible && 'show_right'
+                            isVisible ? 'show_right' : 'display_none_right'
                         }`}
                     >
                         <h5 className="title coloreffect font_size_custom">
@@ -275,11 +281,11 @@ function AboutUs() {
                     #aboutUs::before {
                         display: block;
                         height: 46%;
-                            position: absolute;
+                        position: absolute;
                         bottom: 0;
                         width: 100%;
                         height: 59%;
-                        content: "";
+                        content: '';
                         background-image: url(/assets/images/bgrabout.jpg);
                         background-repeat: no-repeat;
                         background-size: cover;

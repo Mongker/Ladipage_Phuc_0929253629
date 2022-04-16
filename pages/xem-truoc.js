@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useState, useRef /* useMemo, useEffect */ } from 'react';
-import debounce from 'lodash-es/debounce';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import Head from 'next/head';
 import BannerView from '../components/home/Banner';
@@ -15,6 +14,7 @@ import Partner from '../components/home/Partner';
 // import RegistrationViews from '../components/home/RegistrationViews';
 
 import dynamic from 'next/dynamic';
+import Advice from '../components/home/Advice';
 const ModalRegistration = dynamic(import('../components/modal/ModalRegistration'));
 
 export default function Home() {
@@ -22,6 +22,16 @@ export default function Home() {
 
     const setIsOpen = useCallback((value) => {
         _setIsOpen(value);
+    }, []);
+
+    useEffect(() => {
+        let timeout = setTimeout(() => {
+            console.log('123', 123); // MongLV log fix bug
+            setIsOpen(true);
+        }, 5000);
+        return () => {
+            clearTimeout(timeout);
+        };
     }, []);
 
     return (
@@ -76,6 +86,7 @@ export default function Home() {
                 <ProductTap />
                 <NewsViews />
                 <Partner />
+                <Advice />
                 {/*<RegistrationViews />*/}
                 <FooterView />
                 <ModalRegistration isOpen={isOpen} setIsOpen={setIsOpen} />

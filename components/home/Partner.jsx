@@ -20,11 +20,11 @@ function Partner() {
     const [refAnimation, isVisible] = useAnimation();
     return (
         <section className="fw" id="partner" ref={refAnimation}>
-            <img
-                className="img-fluid bgrleaves leavesRightBot"
-                src="/assets/images/larightBot.png"
-                alt=""
-            />
+            {/*<img*/}
+            {/*    className="img-fluid bgrleaves leavesRightBot"*/}
+            {/*    src="/assets/images/larightBot.png"*/}
+            {/*    alt=""*/}
+            {/*/>*/}
             <div className="container">
                 <h5 className={`title colortt1 ${isVisible && 'show_right'}`}>
                     Đối tác phát triển dự án
