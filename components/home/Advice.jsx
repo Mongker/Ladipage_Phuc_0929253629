@@ -16,9 +16,11 @@ import React from 'react';
 import useAnimation from '../hooks/useAnimation';
 // import PropTypes from 'prop-types';
 
-function Advice() {
+function Advice({data_video}) {
     const [refAnimation, isVisible] = useAnimation(500);
     const [refAnimation1, isVisible2] = useAnimation(500);
+    const idYoutube = data_video?.['VIDEO_YOUTUBE'] && typeof data_video['VIDEO_YOUTUBE'] === 'string' && data_video['VIDEO_YOUTUBE'].split('/')[data_video['VIDEO_YOUTUBE'].split('/').length - 1]
+
     const array = [
         {
             title: 'Bước 1: Tắm tráng',
@@ -47,11 +49,41 @@ function Advice() {
     ];
     return (
         <>
-            <section className={'container_advice'} ref={refAnimation}>
+            <section className={'container_advice'} id={'#suggestion'} ref={refAnimation}>
                 <div className={`title colortt1 ${isVisible && 'show_left'}`}>
                     <h1 className={'custom_title'}>Lời khuyên của chuyên gia</h1>
                 </div>
-                <img className={'img_advice'} src={'./assets/images/bacsi.webp'} />
+                {
+                    data_video?.['IMAGE'] &&  <img className={`img_advice`} src={data_video?.['IMAGE'] ? data_video?.['IMAGE'] : `./assets/images/bacsi.webp`} alt="" />
+                }
+                {
+                    data_video?.['VIDEO_SYSTEM'] &&
+                    <video
+                        className={'video_advice'}
+                        width="100%"
+                        height="300px"
+                        autoPlay
+                        controls
+                        muted
+                        loop
+                    >
+                        <source src={data_video['VIDEO_SYSTEM']} type="video/mp4" />
+                    </video>
+                }
+                {
+                    data_video?.['VIDEO_YOUTUBE'] &&
+                    <iframe
+                        width="100%"
+                        height="300px"
+                        src={`https://www.youtube.com/embed/${idYoutube}?autoplay=1`}
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className={'video_advice'}
+                    />
+                }
+                {/*<img className={'img_advice'} src={'./assets/images/bacsi.webp'} />*/}
                 <div className={`container_content ${isVisible && 'show_right'}`}>
                     <p>
                         <b>
@@ -150,6 +182,13 @@ function Advice() {
                     text-align: center;
                     margin-bottom: 15px;
                 }
+                .video_advice {
+                  border-radius: 20px;
+                    object-fit: cover;
+                    width: 50%;
+                    text-align: center;
+                    margin-bottom: 15px;
+                }
                 .container_content {
                     width: 80%;
                     margin-top: 15px;
@@ -209,6 +248,10 @@ function Advice() {
                     .custom_title {
                         text-align: center;
                         font-size: 25px !important;
+                    }
+                    .video_advice {
+                      height: 100%;
+                      width: 90%;
                     }
                     .root2_item1 {
                         width: 145px;

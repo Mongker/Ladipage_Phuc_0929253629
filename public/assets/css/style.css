@@ -390,6 +390,7 @@ a {
 .headerScroll {
   background-color: #fff;
 }
+
 .headerScroll .logo img {
   width: 60%;
 }
@@ -397,17 +398,20 @@ a {
 .menuScroll {
   display: none;
 }
+
 .menuScroll nav {
   text-align: center;
 }
+
 .menuScroll nav a {
   padding: 10px 20px;
   color: #000;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: bold;
   transition: 0.5s;
 }
+
 .menuScroll nav a:hover {
   color: #013932;
 }

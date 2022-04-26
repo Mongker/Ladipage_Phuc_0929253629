@@ -1,7 +1,7 @@
-import React, {useCallback, useEffect, useState, useRef/* useMemo, useEffect */} from 'react';
-import debounce from 'lodash-es/debounce'
-
+import React, { useCallback, useState, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
+
 import BannerView from '../components/home/Banner';
 import LocationView from '../components/home/LocationViews';
 import OverView from '../components/home/OverView';
@@ -12,157 +12,71 @@ import ProductTap from '../components/home/Product Tap';
 import FooterView from '../components/home/Footer';
 import NewsViews from '../components/home/NewsViews';
 import Partner from '../components/home/Partner';
+import Advice from '../components/home/Advice';
 // import RegistrationViews from '../components/home/RegistrationViews';
 
-import dynamic from 'next/dynamic';
 const ModalRegistration = dynamic(import('../components/modal/ModalRegistration'));
 
-const itemIdsNameId = ['banner', 'registration', 'overView', 'location', 'sectionSlide', 'productTap', 'news', 'partner', 'footer'];
+async function getDataGoogleSheet(id = '/') {
+    const res = await fetch(`http://103.57.222.215:4040/api/google_sheet/client${id}`);
+    return await res.json();
+}
 
-export default function Home() {
+// export async function getStaticPaths() {
+//     return {
+//         paths: [],
+//         fallback: false,
+//     };
+// }
+
+// export async function getStaticProps(context) {
+export async function getServerSideProps() {
+    const data_header = await getDataGoogleSheet('/1642400825'); // Header
+    const data_video = await getDataGoogleSheet('/1310981046'); // Video
+    const data_overview = await getDataGoogleSheet('/1475976919'); // OverView
+    const data_location = await getDataGoogleSheet('/1813597616'); // Location
+    const data_section_slide = await getDataGoogleSheet('/1968707698'); // Section
+    const data_product = await getDataGoogleSheet('/1318880518'); // Product
+    const data_video_advice = await getDataGoogleSheet('/1226334748'); // Video Advice
+    const data_footer = await getDataGoogleSheet('/356671284'); // Video Advice
+
+    return {
+        props: {
+            data_header,
+            data_video,
+            data_overview,
+            data_location,
+            data_section_slide,
+            data_product,
+            data_video_advice,
+            data_footer,
+        },
+    };
+}
+
+// export async function getServerSideProps(context) {
+//     console.log('x: ', process.env.domainAPI); // MongLV log fix bug
+//     const res = await fetch(`${process.env.domainAPI}/api/google_sheet/client`)
+//     const data = await res.json()
+//     return {
+//         props: {},
+//     }
+// }
+
+export default function Home({
+    data_header,
+    data_video,
+    data_overview,
+    data_location,
+    data_section_slide,data_product, data_video_advice, data_footer
+}) {
     const [isOpen, _setIsOpen] = useState(false);
-    const SCROLL = typeof window !== 'undefined' ? window.innerHeight / 1.5 : 500 / 2;
 
-    // const [isScroll, setIsScroll] = useState(false);
-    // const debouncedScrollHandler = useMemo(() => debounce(() => {
-    //     setIsScroll(false)
-    // }, 1000), []);
-
-    // const [indexItemIdsNameId, setIndexItemIdsNameId] = useState(0);
-    const index = useRef(0);
-    const refElementA  = useRef(null);
-    const xxxx  = useRef(0);
-    const isScroll  = useRef(false);
-    // const oyItemIdsIdName = useRef([]);
-    // const perScrollY = useRef(0);
+    const refElementA = useRef(null);
 
     const setIsOpen = useCallback((value) => {
         _setIsOpen(value);
     }, []);
-
-    // const handleScroll = () => {
-    //     if(!isScroll) {
-    //         setIsScroll(truetrue)
-    //     }
-    //
-    //     debouncedScrollHandler();
-    // }
-
-    // useEffect(() => {
-    //     typeof window !== 'undefined' && window.scrollBy(0, 0);
-    // }, [])
-
-    // useEffect(() => {
-    //
-    //     if(typeof window !== 'undefined') {
-    //
-    //         window.addEventListener('scroll', debounce(
-    //             function(event){
-    //                 const delta = event.wheelDelta / 30 || -event.detail;
-    //                 // If the user scrolled up, it goes to previous slide, otherwise - to next slide
-    //                 if(delta < -1) {
-    //                     xxxx.current = xxxx.current + SCROLL;
-    //                     handleScrollY(itemIdsNameId[index.current]);
-    //                 }
-    //                 else if(delta > 1) {
-    //                     xxxx.current = xxxx.current - SCROLL;
-    //                     handleScrollY(itemIdsNameId[index.current]);
-    //                 }
-    //             },
-    //             200
-    //         ));
-    //         window.addEventListener('mousewheel', debounce(
-    //             function(event){
-    //                 const delta = event.wheelDelta / 30 || -event.detail;
-    //                 // If the user scrolled up, it goes to previous slide, otherwise - to next slide
-    //                 if(delta < -1) {
-    //                     xxxx.current = xxxx.current + SCROLL;
-    //                     handleScrollY(itemIdsNameId[index.current]);
-    //                 }
-    //                 else if(delta > 1) {
-    //                     xxxx.current = xxxx.current - SCROLL;
-    //                     handleScrollY(itemIdsNameId[index.current]);
-    //                 }
-    //             },
-    //             200
-    //         ));
-    //         window.addEventListener('DOMMouseScroll', debounce(
-    //             function(event){
-    //                 const delta = event.wheelDelta / 30 || -event.detail;
-    //                 // If the user scrolled up, it goes to previous slide, otherwise - to next slide
-    //                 if(delta < -1) {
-    //                     xxxx.current = xxxx.current + SCROLL;
-    //                     handleScrollY(itemIdsNameId[index.current]);
-    //                 }
-    //                 else if(delta > 1) {
-    //                     xxxx.current = xxxx.current - SCROLL;
-    //                     handleScrollY(itemIdsNameId[index.current]);
-    //                 }
-    //             },
-    //             200
-    //         ));
-    //         window.addEventListener('touchmove', debounce(
-    //             function(event){
-    //                 const delta = event.wheelDelta / 30 || -event.detail;
-    //                 // If the user scrolled up, it goes to previous slide, otherwise - to next slide
-    //                 if(delta < -1) {
-    //                     xxxx.current = xxxx.current + SCROLL;
-    //                     handleScrollY(itemIdsNameId[index.current]);
-    //                 }
-    //                 else if(delta > 1) {
-    //                     xxxx.current = xxxx.current - SCROLL;
-    //                     handleScrollY(itemIdsNameId[index.current]);
-    //                 }
-    //             },
-    //             200
-    //         ));
-    //
-    //         window.addEventListener('keydown', handleKeyDown);
-    //     }
-    //
-    //     return () => {
-    //         // window.removeEventListener("mousewheel", debounceScroll);
-    //     };
-    // }, []);
-    //
-    // const handleKeyDown = function(e){
-    //
-    //     // up slide
-    //     if(e.keyCode === 38) {
-    //         xxxx.current = xxxx.current - SCROLL;
-    //         window.scroll(0, xxxx.current)
-    //     } else if(e.keyCode === 40) { // down slide
-    //         xxxx.current = xxxx.current + SCROLL;
-    //         window.scroll(0, xxxx.current)
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     isScroll && logicScroll();
-    // }, [isScroll])
-    //
-    // function logicScroll() {
-    //     const st = window.pageYOffset || document.documentElement.scrollTop;
-    //
-    //     if (st > perScrollY.current){
-    //         indexItemIdsNameId.current = indexItemIdsNameId.current + 1;
-    //         handleScrollY(itemIdsNameId[indexItemIdsNameId.current]);
-    //     } else {
-    //         indexItemIdsNameId.current = indexItemIdsNameId.current - 1;
-    //         handleScrollY(itemIdsNameId[indexItemIdsNameId.current]);
-    //     }
-    //     perScrollY.current = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-    // }
-    const handleScrollY = () => {
-        if(typeof window !== 'undefined') {
-            // window.scroll(0, xxxx.current)
-            window.scroll({
-                top: xxxx.current,
-                left: 0,
-                behavior: 'smooth'
-            })
-        }
-    };
 
     return (
         <React.Fragment>
@@ -207,18 +121,19 @@ export default function Home() {
                         <img className="img-fluid" src="/assets/images/scroll.png" alt="" />
                     </div>
                 </div>
-                <a id={'id_scroll'} ref={refElementA}/>
-                <HeaderView setIsOpen={setIsOpen} />
+                <a id={'id_scroll'} ref={refElementA} />
+                <HeaderView data_header={data_header} setIsOpen={setIsOpen} />
                 <BannerView />
-                <AboutUs />
-                <OverView />
-                <LocationView />
-                <SectionSlideViews />
-                <ProductTap />
+                <AboutUs data_video={data_video} />
+                <OverView data_overview={data_overview} />
+                <LocationView data_location={data_location} />
+                <SectionSlideViews data_section_slide={data_section_slide} />
+                <ProductTap data_product={data_product} />
                 <NewsViews />
                 <Partner />
                 {/*<RegistrationViews />*/}
-                <FooterView />
+                <Advice data_video={data_video_advice} />
+                <FooterView data_footer={data_footer} />
                 <ModalRegistration isOpen={isOpen} setIsOpen={setIsOpen} />
                 <div className={'ifc'} />
             </div>

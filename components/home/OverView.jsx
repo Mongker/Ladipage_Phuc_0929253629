@@ -16,38 +16,52 @@ import React from 'react';
 import useAnimation from '../hooks/useAnimation';
 // import PropTypes from 'prop-types';
 
-function OverView() {
-    const [refAnimation, isVisible]  = useAnimation();
+function OverView({ data_overview }) {
+    const [refAnimation, isVisible] = useAnimation();
     return (
         <section className="fw" id="overView" ref={refAnimation}>
             <img className="img-fluid bgr bgrOverView" src="/assets/images/bgr2.png" alt="" />
             <div className="overViewContent containerFix">
                 <h5 className={`title coloreffect ${isVisible && 'show_left'}`}>
-                    TỔ HỢP BẤT ĐỘNG SẢN 5 IN 1: <br /> SỞ HỮU – NGHỈ DƯỠNG – SỨC KHỎE <br /> – TIẾT
-                    KIỆM – CAM KẾT LỢI NHUẬN
+                    {data_overview?.['TITLE'] && data_overview['TITLE']}
                 </h5>
                 <div className={`row`}>
                     <div className={`col-lg-3 formCol ${isVisible && 'show_right'}`}>
                         <div className={`row ${isVisible & 'show_right'}`}>
                             <div className="data col-lg-12 col-6">
                                 <p>Tổng diện tích</p>
-                                <h6 className="coloreffect">56,859 m2</h6>
+                                <h6 className="coloreffect">
+                                    {data_overview?.['S'] && data_overview['S']} m2
+                                </h6>
                             </div>
                             <div className="data col-lg-12 col-6">
                                 <p>Phân khu</p>
-                                <h6 className="coloreffect">03</h6>
+                                <h6 className="coloreffect">
+                                    {data_overview?.['PHAN_KHU'] && data_overview['PHAN_KHU']}
+                                </h6>
                             </div>
                             <div className="data col-lg-12 col-6">
                                 <p>Mandala Signature Hotel</p>
-                                <h6 className="coloreffect">137 căn</h6>
+                                <h6 className="coloreffect">
+                                    {' '}
+                                    {data_overview?.['HOTEL'] && data_overview['HOTEL']} căn
+                                </h6>
                             </div>
                             <div className="data col-lg-12 col-6">
                                 <p>Anamia Villas</p>
-                                <h6 className="coloreffect">43 căn</h6>
+                                <h6 className="coloreffect">
+                                    {data_overview?.['ANAMIA_VILLAS'] &&
+                                        data_overview['ANAMIA_VILLAS']}{' '}
+                                    căn
+                                </h6>
                             </div>
                             <div className="data col-lg-12 col-6">
                                 <p>La Sen Sky Villas</p>
-                                <h6 className="coloreffect">1005 căn</h6>
+                                <h6 className="coloreffect">
+                                    {data_overview?.['LA_SEN_SKY_VILLAS'] &&
+                                        data_overview['LA_SEN_SKY_VILLAS']}{' '}
+                                    căn
+                                </h6>
                             </div>
                         </div>
                     </div>

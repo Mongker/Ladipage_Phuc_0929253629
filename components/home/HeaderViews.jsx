@@ -15,7 +15,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-function HeaderView({ setIsOpen }) {
+function HeaderView({ setIsOpen, data_header }) {
     return (
         <header id="header">
             <div className="headerTop">
@@ -25,13 +25,21 @@ function HeaderView({ setIsOpen }) {
                             <a href="#banner">
                                 <img
                                     className="img-fluid imgLogo"
-                                    src="/assets/images/logo.png"
-                                    alt=""
+                                    src={
+                                        data_header['HEAD_IMG1']
+                                            ? data_header['HEAD_IMG1']
+                                            : '/assets/images/logo.png'
+                                    }
+                                    alt="logo"
                                 />
                                 <img
                                     className="img-fluid imgLogoScroll"
-                                    src="/assets/images/logo.png"
-                                    alt=""
+                                    src={
+                                        data_header['HEAD_IMG1']
+                                            ? data_header['HEAD_IMG1']
+                                            : '/assets/images/logo.png'
+                                    }
+                                    alt="logo"
                                 />
                             </a>
                         </h1>
@@ -43,17 +51,29 @@ function HeaderView({ setIsOpen }) {
                             Đăng ký ngay
                         </a>
                         <div className="toggleMenu">
-                            <span className="mobile_btn"></span>
+                            <span className="mobile_btn" />
                         </div>
                         <div className="menuScroll">
                             <nav>
-                                <a href="#banner">Trang chủ</a>
-                                <a href="#overView">Mặt bằng</a>
-                                <a href="#location">Vị trí</a>
-                                <a href="#sectionSlide">Tiện ích</a>
-                                <a href="#productTap">Loại căn</a>
-                                <a href="#news">Tin tức</a>
-                                <a href="#registration">Liên hệ</a>
+                                {Object.keys(data_header).map((key, index) => {
+                                    if (key.includes('TITLE')) {
+                                        const i = index + 1;
+                                        return (
+                                            <a key={`ID_${i}_x`} href={data_header[`ID_${i}`]}>
+                                                {data_header[key]}
+                                            </a>
+                                        );
+                                    } else {
+                                        return <React.Fragment />;
+                                    }
+                                })}
+                                {/*<a href="#banner">Trang chủ</a>*/}
+                                {/*<a href="#overView">Mặt bằng</a>*/}
+                                {/*<a href="#location">Vị trí</a>*/}
+                                {/*<a href="#sectionSlide">Tiện ích</a>*/}
+                                {/*<a href="#productTap">Loại căn</a>*/}
+                                {/*<a href="#news">Tin tức</a>*/}
+                                {/*<a href="#registration">Liên hệ</a>*/}
                             </nav>
                         </div>
                     </div>
@@ -61,13 +81,18 @@ function HeaderView({ setIsOpen }) {
             </div>
             <div className="menu">
                 <nav>
-                    <a href="#banner">Trang chủ</a>
-                    <a href="#overView">Mặt bằng</a>
-                    <a href="#location">Vị trí</a>
-                    <a href="#sectionSlide">Tiện ích</a>
-                    <a href="#productTap">Loại căn</a>
-                    <a href="#news">Tin tức</a>
-                    <a href="#registration">Liên hệ</a>
+                    {Object.keys(data_header).map((key, index) => {
+                        if (key.includes('TITLE')) {
+                            const i = index + 1;
+                            return (
+                                <a key={`ID_${i}_Y`} href={data_header[`ID_${i}`]}>
+                                    {data_header[key]}
+                                </a>
+                            );
+                        } else {
+                            return <React.Fragment />;
+                        }
+                    })}
                 </nav>
             </div>
         </header>

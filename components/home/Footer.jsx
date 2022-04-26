@@ -15,7 +15,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-function FooterView() {
+function FooterView({ data_footer }) {
     return (
         <footer className="fw" id="footer">
             <div className="container">
@@ -30,26 +30,36 @@ function FooterView() {
                     <div className="col-xs-15 col-sm-15 col-md-15 col-lg-15 formCol">
                         <h6 className="titleFooter">ĐỊA CHỈ DỰ ÁN</h6>
                         <p>
-                            <i className="fas fa-map-marker-alt"></i>Xóm Mớ Đá, xã Hạ Bì, huyện Kim
-                            Bôi, tỉnh Hòa Bình
+                            <i className="fas fa-map-marker-alt"></i>
+                            {data_footer?.['DIA_CHI']
+                                ? data_footer['DIA_CHI']
+                                : ' Xóm Mớ Đá, xã Hạ Bì, huyện Kim\n' +
+                                  '                            Bôi, tỉnh Hòa Bình'}
                         </p>
                     </div>
                     <div className="col-xs-15 col-sm-15 col-md-15 col-lg-15 formCol">
                         <h6 className="titleFooter">hotline</h6>
                         <p>
-                            <i className="fas fa-phone-alt"></i>
-                            <a href="tel:0961323969">0961323969</a>
+                            <i className="fas fa-phone-alt" />
+                            <a
+                                href={`tel:0${
+                                    data_footer?.['SDT'] ? `0${data_footer['SDT']}` : ''
+                                }`}
+                            >
+                                {data_footer?.['SDT'] ? `0${data_footer['SDT']}` : ''}
+                            </a>
                         </p>
                     </div>
                     <div className="col-xs-15 col-sm-15 col-md-15 col-lg-15 formCol">
                         <h6 className="titleFooter">email</h6>
                         <p>
-                            <i className="far fa-envelope"></i>apecmandalakimboi@idjf.vn
+                            <i className="far fa-envelope" />
+                            {data_footer?.['EMAIL'] ? `${data_footer['EMAIL']}` : ''}
                         </p>
                     </div>
                     <div className="col-xs-15 col-sm-15 col-md-15 col-lg-15 formCol">
                         <h6 className="titleFooter">fanpage</h6>
-                        <p>Apec Mandala Sky Villas Kim Boi</p>
+                        <p>{data_footer?.['FANPAGE'] ? `${data_footer['FANPAGE']}` : ''}</p>
                     </div>
                 </div>
             </div>

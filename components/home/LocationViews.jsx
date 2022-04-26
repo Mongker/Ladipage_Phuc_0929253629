@@ -16,7 +16,7 @@ import React from 'react';
 import useAnimation from '../hooks/useAnimation';
 // import PropTypes from 'prop-types';
 
-function LocationView() {
+function LocationView({ data_location }) {
     const [refAnimation, isVisible] = useAnimation();
     return (
         <section className="fw" id="location" ref={refAnimation}>
@@ -24,29 +24,45 @@ function LocationView() {
             <div className="container">
                 <div className="row row_rev">
                     <div className={`col-lg-8 ${isVisible && 'show_left'}`}>
-                        <img className="img-fluid" src="/assets/images/loc1.png" alt="" />
+                        <img
+                            title={'LOCATION_IMAGE'}
+                            className="img-fluid"
+                            src={
+                                data_location?.['LOCATION_IMAGE']
+                                    ? data_location['LOCATION_IMAGE']
+                                    : '/assets/images/loc1.png'
+                            }
+                            alt=""
+                        />
                     </div>
                     <div className={`col-lg-4 ${isVisible && 'show_right'}`}>
-                        <h5 className={`title colortt1`}>CĂN HỘ KHOÁNG TRỊ LIỆU GẦN HÀ NỘI</h5>
-                        <p>
-                            Nằm cách Hà Nội chỉ 90 phút di chuyển, APEC Mandala Retreats Kim Bôi
-                            đích thị là điểm đến “đủ xa để riêng tư, đủ gần để tận hưởng”.
+                        <h5 title={'LOCATION_TITLE'} className={`title colortt1`}>
+                            {data_location?.['LOCATION_TITLE']
+                                ? data_location?.['LOCATION_TITLE']
+                                : 'CĂN HỘ KHOÁNG TRỊ LIỆU GẦN HÀ NỘI'}
+                        </h5>
+                        <p title={'LOCATION_CONTENT1'}>
+                            {data_location?.['LOCATION_CONTENT1']
+                                ? data_location['LOCATION_CONTENT1']
+                                : 'Nằm cách Hà Nội chỉ 90 phút di chuyển, APEC Mandala Retreats Kim Bôi\n' +
+                                  'đích thị là điểm đến “đủ xa để riêng tư, đủ gần để tận hưởng”.'}
                         </p>
-                        <p>
-                            Đặc biệt, mạch khoáng Kim Bôi thuộc dòng khoáng Bicarbonate đã được
-                            Trung tâm Thông tin Công nghệ sinh học Quốc gia Hoa Kỳ chứng minh tốt
-                            cho việc điều trị các bệnh xương khớp, chống loãng xương, thoái hóa
-                            xương. Ngoài ra, nguồn khoáng này còn được xếp vào loại khoáng Sulphate
-                            - Magie - Canxi có tác dụng chống oxy hóa, cải thiện da. Vì vậy nó cũng
-                            được mệnh danh là nước khoáng Spa (SMW - Spa Mineral Water). Ngoài ra,
-                            “thần dược” thiên nhiên tại đây còn được đánh giá có lợi cho hệ tiêu
-                            hóa, tim mạch và tốt cho phụ nữ có thai.
+                        <p title={'LOCATION_CONTENT2'}>
+                            {data_location?.['LOCATION_CONTENT2']
+                                ? data_location['LOCATION_CONTENT2']
+                                : 'Đặc biệt, mạch khoáng Kim Bôi thuộc dòng khoáng Bicarbonate đã được\n' +
+                                  '                            Trung tâm Thông tin Công nghệ sinh học Quốc gia Hoa Kỳ chứng minh tốt\n' +
+                                  '                            cho việc điều trị các bệnh xương khớp, chống loãng xương, thoái hóa\n' +
+                                  '                            xương. Ngoài ra, nguồn khoáng này còn được xếp vào loại khoáng Sulphate\n' +
+                                  '                            - Magie - Canxi có tác dụng chống oxy hóa, cải thiện da. Vì vậy nó cũng\n' +
+                                  '                            được mệnh danh là nước khoáng Spa (SMW - Spa Mineral Water). Ngoài ra,\n' +
+                                  '                            “thần dược” thiên nhiên tại đây còn được đánh giá có lợi cho hệ tiêu\n' +
+                                  '                            hóa, tim mạch và tốt cho phụ nữ có thai.'}
                         </p>
                         <div className="btnStyle regisCar">
                             <a href="#registration">
                                 <button className="button">
-                                    Đăng ký xe khách tham quan{' '}
-                                    <i className="fas fa-arrow-right"></i>
+                                    Đăng ký xe khách tham quan <i className="fas fa-arrow-right" />
                                 </button>
                             </a>
                         </div>
