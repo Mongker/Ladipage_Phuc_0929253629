@@ -19,6 +19,7 @@ function usePostData(setIsOpen = () => null) {
                 method: 'POST',
                 data,
             });
+            handleNotification();
         } catch (e) {
             console.log('e', e); // MongLV log fix bug
         }
