@@ -64,16 +64,9 @@ function HeaderView({ setIsOpen, data_header }) {
                                             </a>
                                         );
                                     } else {
-                                        return <React.Fragment />;
+                                        return null;
                                     }
                                 })}
-                                {/*<a href="#banner">Trang chủ</a>*/}
-                                {/*<a href="#overView">Mặt bằng</a>*/}
-                                {/*<a href="#location">Vị trí</a>*/}
-                                {/*<a href="#sectionSlide">Tiện ích</a>*/}
-                                {/*<a href="#productTap">Loại căn</a>*/}
-                                {/*<a href="#news">Tin tức</a>*/}
-                                {/*<a href="#registration">Liên hệ</a>*/}
                             </nav>
                         </div>
                     </div>

@@ -13,11 +13,14 @@
  */
 
 import React, { useState } from 'react';
+import { NotificationManager } from 'react-notifications';
 import Modal from 'react-modal';
+import usePostData from '../hooks/usePostData';
 // import PropTypes from 'prop-types';
 Modal.setAppElement('#web_app');
 
 function ModalRegistration({ isOpen, setIsOpen }) {
+    const { name, setName, phone, setPhone, handleSubmit } = usePostData(setIsOpen);
     if (typeof window === 'undefined') return <React.Fragment />;
     const customStyles = {
         content: {
@@ -40,6 +43,7 @@ function ModalRegistration({ isOpen, setIsOpen }) {
             backgroundColor: 'rgb(96 96 96 / 75%)',
         },
     };
+
     return (
         <Modal
             isOpen={isOpen}
@@ -50,7 +54,7 @@ function ModalRegistration({ isOpen, setIsOpen }) {
         >
             <div className="row contentRegistration containerModal">
                 <h5 className="coloreffect">ĐĂNG KÝ NHẬN BẢNG GIÁ, CHÍNH SÁCH VÀ TIẾN ĐỘ DỰ ÁN</h5>
-                <form method="POST">
+                <form method="POST" onSubmit={handleSubmit}>
                     <div className="row">
                         <div className="col-lg-6 formGroup" style={{ color: '#2b877c' }}>
                             <label htmlFor="">Họ và tên</label>
@@ -59,6 +63,8 @@ function ModalRegistration({ isOpen, setIsOpen }) {
                                 id="fullname"
                                 name="fullname"
                                 className="form-control"
+                                value={name}
+                                onChange={(event) => setName(event.target.value)}
                             />
                         </div>
                         <div className="col-lg-6 formGroup" style={{ color: '#2b877c' }}>
@@ -68,11 +74,13 @@ function ModalRegistration({ isOpen, setIsOpen }) {
                                 id="phonenumber"
                                 name="phonenumber"
                                 className="form-control"
+                                value={phone}
+                                onChange={(event) => setPhone(event.target.value)}
                             />
                         </div>
                     </div>
                     <div className="btnSubmit btnStyle">
-                        <button type="button" id="btnSubmit">
+                        <button type="button" id="btnSubmit" onClick={handleSubmit}>
                             Đăng ký ngay <i className="fas fa-arrow-right" />
                         </button>
                     </div>

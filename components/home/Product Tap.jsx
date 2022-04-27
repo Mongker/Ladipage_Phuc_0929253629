@@ -16,7 +16,7 @@ import React from 'react';
 import useAnimation from '../hooks/useAnimation';
 // import PropTypes from 'prop-types';
 
-function ProductTap({data_product}) {
+function ProductTap({ data_product }) {
     const [refAnimation, isVisible] = useAnimation();
     return (
         <section className="fw" id="productTap" ref={refAnimation}>
@@ -38,21 +38,22 @@ function ProductTap({data_product}) {
             <div className="container">
                 <div className={`titleCenter ${isVisible && 'show_left'}`}>
                     <h5 className="title colortt1">
-                        {
-                            data_product?.['PRODUCT_TITLE'] ? data_product['PRODUCT_TITLE'] : 'Mua một sở hữu chuỗi - Tặng 90 đêm nghỉ dưỡng 5* <br /> áp dụng trên toàn\n' + 'quốc'
-                        }
+                        {data_product?.['PRODUCT_TITLE']
+                            ? data_product['PRODUCT_TITLE']
+                            : 'Mua một sở hữu chuỗi - Tặng 90 đêm nghỉ dưỡng 5* áp dụng trên toàn\n' +
+                              'quốc'}
                     </h5>
                     <p>
-                        {
-                            data_product?.['PRODUCT_CONTENT'] ? data_product['PRODUCT_CONTENT'] : 'Với đặc quyền: “MUA 1 – SỞ HỮU CHUỖI”, cư dân và những nhà đầu tư mua căn hộ\n' +
-                                'tại Kim Bôi – Hòa Bình còn được chuyển điểm, đổi ngày nghỉ vô cùng linh hoạt\n' +
-                                'trên tất cả các điểm đến của tập đoàn Apec khắp Việt Nam. APEC GROUP đang là\n' +
-                                'chủ sở hữu hàng loạt dự án lớn như khu đô thị đáng sống nhất 2020 - Apec\n' +
-                                'Royal Park Huế với tổng mức đầu tư 10.000 tỷ đồng, Apec Mandala Wyndham Mũi\n' +
-                                'Né - top 10 khách sạn lớn nhất châu Á với gần 3000 phòng… cùng hàng loạt các\n' +
-                                'khách sạn 5 sao tại: Phú Yên, Lạng Sơn, Bắc Giang, Hội An, Quy Nhơn, Yên\n' +
-                                ' Bái...'
-                        }
+                        {data_product?.['PRODUCT_CONTENT']
+                            ? data_product['PRODUCT_CONTENT']
+                            : 'Với đặc quyền: “MUA 1 – SỞ HỮU CHUỖI”, cư dân và những nhà đầu tư mua căn hộ\n' +
+                              'tại Kim Bôi – Hòa Bình còn được chuyển điểm, đổi ngày nghỉ vô cùng linh hoạt\n' +
+                              'trên tất cả các điểm đến của tập đoàn Apec khắp Việt Nam. APEC GROUP đang là\n' +
+                              'chủ sở hữu hàng loạt dự án lớn như khu đô thị đáng sống nhất 2020 - Apec\n' +
+                              'Royal Park Huế với tổng mức đầu tư 10.000 tỷ đồng, Apec Mandala Wyndham Mũi\n' +
+                              'Né - top 10 khách sạn lớn nhất châu Á với gần 3000 phòng… cùng hàng loạt các\n' +
+                              'khách sạn 5 sao tại: Phú Yên, Lạng Sơn, Bắc Giang, Hội An, Quy Nhơn, Yên\n' +
+                              ' Bái...'}
                     </p>
                 </div>
                 <div className={`contentTap ${isVisible && 'show_right'}`}>

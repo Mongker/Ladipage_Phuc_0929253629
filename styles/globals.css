@@ -15,10 +15,9 @@ a {
   box-sizing: border-box;
 }
 .display_none_left {
-  /*display: none;*/
   left: -500px;
 }
+
 .display_none_right {
-  /*display: none;*/
   right: -500px;
 }

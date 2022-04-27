@@ -17,7 +17,7 @@ import useAnimation from '../hooks/useAnimation';
 // import PropTypes from 'prop-types';
 
 function OverView({ data_overview }) {
-    const [refAnimation, isVisible] = useAnimation();
+    const [refAnimation, isVisible] = useAnimation(500);
     return (
         <section className="fw" id="overView" ref={refAnimation}>
             <img className="img-fluid bgr bgrOverView" src="/assets/images/bgr2.png" alt="" />

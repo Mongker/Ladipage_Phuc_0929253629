@@ -67,8 +67,4 @@ function FooterView({ data_footer }) {
     );
 }
 
-FooterView.propTypes = {};
-
-FooterView.defaultProps = {};
-
 export default FooterView;
