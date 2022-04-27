@@ -15,11 +15,10 @@ function usePostData(setIsOpen = () => null) {
             PHONE: phone,
         };
         try {
-            const res = await fetch('http://localhost:1999/api/google_sheet/client', {
+            const res = await fetch('http://103.57.222.215:4040/api/google_sheet/client', {
                 method: 'POST',
                 data,
             });
-            console.log('res', res); // MongLV log fix bug
         } catch (e) {
             console.log('e', e); // MongLV log fix bug
         }

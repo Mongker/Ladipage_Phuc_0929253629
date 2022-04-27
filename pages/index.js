@@ -160,7 +160,7 @@ export default function Home({
                 <a id={'id_scroll'} ref={refElementA} />
                 <HeaderView data_header={data_header} setIsOpen={setIsOpen} />
                 <BannerView />
-                <AboutUs data_video={data_video} />
+                <AboutUs data_video={data_video} isOpen={isOpen} />
                 <OverView data_overview={data_overview} />
                 <LocationView data_location={data_location} />
                 <SectionSlideViews data_section_slide={data_section_slide} />

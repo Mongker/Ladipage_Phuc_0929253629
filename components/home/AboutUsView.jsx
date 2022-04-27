@@ -16,7 +16,7 @@ import useAnimation from '../hooks/useAnimation';
 import React from 'react';
 import usePostData from '../hooks/usePostData';
 
-function AboutUs({ data_video }) {
+function AboutUs({ data_video, isOpen }) {
     const { name, setName, phone, setPhone, handleSubmit } = usePostData();
     const [refAnimation, isVisible] = useAnimation(500);
     const idYoutube =
@@ -136,7 +136,7 @@ function AboutUs({ data_video }) {
             <style jsx>{`
                 .container_custom {
                     position: relative;
-                    z-index: 10;
+                    z-index: '${isOpen} ? 0 : 10';
                 }
                 .contentRegistration1 {
                     background-color: #083932;
