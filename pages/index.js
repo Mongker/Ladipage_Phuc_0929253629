@@ -85,7 +85,7 @@ export default function Home({
                 fjs.parentNode.insertBefore(js, fjs);
             })(document, 'script', 'facebook-jssdk');
             const chatbox = document.getElementById('fb-customer-chat');
-            chatbox.setAttribute('page_id', '115869984355757');
+            chatbox.setAttribute('page_id', '806932376075524');
             chatbox.setAttribute('attribution', 'biz_inbox');
             window.fbAsyncInit = function () {
                 FB?.init({
@@ -111,9 +111,9 @@ export default function Home({
                 <meta property="og:title" content="Apec Mandala Retreats Kim Boi" />
                 <meta property="og:description" content="Apec Mandala Retreats Kim Boi." />
                 <meta property="og:type" content="Website" />
-                <meta property="og:url" content="https://mandalahotel.com.vn/" />
-                <meta property="og:email" content="welcome@mandalahotel.com.vn" />
-                <meta property="og:image" content="../mandalahotel.com.vn/assets/img/seo.html" />
+                <meta property="og:url" content="http://mandalakimboi.vn/" />
+                {/*<meta property="og:email" content="welcome@mandalahotel.com.vn" />*/}
+                <meta property="og:image" content="" />
             </Head>
             <div className="wrapper fw" style={{ overflowY: 'hidden' }}>
                 <div className="hotline-phone-ring-wrap">
