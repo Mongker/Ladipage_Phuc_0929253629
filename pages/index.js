@@ -115,11 +115,14 @@ export default function Home({
                 <meta property="og:title" content="Apec Mandala Retreats Kim Boi" />
                 <meta property="og:description" content="Apec Mandala Retreats Kim Boi." />
                 <meta property="og:type" content="Website" />
-                <meta property="og:url" content="http://mandalakimboi.vn/" />
+                <meta property="og:url" content="https://mandalakimboi.vn/" />
                 {/*<meta property="og:email" content="welcome@mandalahotel.com.vn" />*/}
-                <meta property="og:image" content="/assets/images/logo.png" />
+                <meta
+                    property="og:image"
+                    content="https://mandalakimboi.vn/assets/images/logo.png"
+                />
                 <meta property="og:image:alt" content="Apec Mandala Retreats Kim Boi" />
-                <meta property="image" content="/assets/images/logo.png" />
+                <meta property="image" content="https://mandalakimboi.vn/assets/images/logo.png" />
             </Head>
             <div className="wrapper fw" style={{ overflowY: 'hidden' }}>
                 <div className="hotline-phone-ring-wrap">
