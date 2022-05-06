@@ -117,7 +117,7 @@ export default function Home({
                 <meta property="og:type" content="Website" />
                 <meta property="og:url" content="http://mandalakimboi.vn/" />
                 {/*<meta property="og:email" content="welcome@mandalahotel.com.vn" />*/}
-                <meta property="og:image" content="" />
+                <meta property="og:image" content="/assets/images/logo.png" />
             </Head>
             <div className="wrapper fw" style={{ overflowY: 'hidden' }}>
                 <div className="hotline-phone-ring-wrap">
