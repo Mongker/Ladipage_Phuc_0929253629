@@ -24,9 +24,10 @@ function AboutUs({ data_video, isOpen }) {
         typeof data_video['VIDEO_YOUTUBE'] === 'string' &&
         data_video['VIDEO_YOUTUBE'].split('/')[data_video['VIDEO_YOUTUBE'].split('/').length - 1];
     const className = `border_radius`;
+    const style = isOpen ? { zIndex: 0 } : { zIndex: 1 };
     return (
         <section className="fw" id="aboutUs" ref={refAnimation}>
-            <div className="container container_custom">
+            <div className="container">
                 <div className="row">
                     <div
                         className={`col-lg-8 formCol border_radius ${
@@ -79,6 +80,10 @@ function AboutUs({ data_video, isOpen }) {
                         className={`col-lg-4 formCol aboutContent contentRegistration1 border_radius ${
                             isVisible ? 'show_right' : 'display_none_right'
                         }`}
+                        style={{
+                            position: 'relative',
+                            ...style,
+                        }}
                     >
                         <h5 className="title coloreffect font_size_custom">
                             ĐĂNG KÝ NHẬN BẢNG GIÁ, CHÍNH SÁCH VÀ TIẾN ĐỘ DỰ ÁN
@@ -127,16 +132,10 @@ function AboutUs({ data_video, isOpen }) {
                     </div>
                 </div>
             </div>
-            <img
-                onClick={handleSubmit}
-                className="bgrAboutus img-fluid bgr"
-                src="/assets/images/bgr1.png"
-                alt=""
-            />
+            <img className="bgrAboutus img-fluid bgr" src="/assets/images/bgr1.png" alt="" />
             <style jsx>{`
                 .container_custom {
                     position: relative;
-                    z-index: '${isOpen} ? 0 : 10';
                 }
                 .contentRegistration1 {
                     background-color: #083932;

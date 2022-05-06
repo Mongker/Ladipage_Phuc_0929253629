@@ -16,10 +16,13 @@ import React from 'react';
 import useAnimation from '../hooks/useAnimation';
 // import PropTypes from 'prop-types';
 
-function Advice({data_video}) {
+function Advice({ data_video }) {
     const [refAnimation, isVisible] = useAnimation(500);
     const [refAnimation1, isVisible2] = useAnimation(500);
-    const idYoutube = data_video?.['VIDEO_YOUTUBE'] && typeof data_video['VIDEO_YOUTUBE'] === 'string' && data_video['VIDEO_YOUTUBE'].split('/')[data_video['VIDEO_YOUTUBE'].split('/').length - 1]
+    const idYoutube =
+        data_video?.['VIDEO_YOUTUBE'] &&
+        typeof data_video['VIDEO_YOUTUBE'] === 'string' &&
+        data_video['VIDEO_YOUTUBE'].split('/')[data_video['VIDEO_YOUTUBE'].split('/').length - 1];
 
     const array = [
         {
@@ -53,11 +56,18 @@ function Advice({data_video}) {
                 <div className={`title colortt1 ${isVisible && 'show_left'}`}>
                     <h1 className={'custom_title'}>Lời khuyên của chuyên gia</h1>
                 </div>
-                {
-                    data_video?.['IMAGE'] &&  <img className={`img_advice`} src={data_video?.['IMAGE'] ? data_video?.['IMAGE'] : `./assets/images/bacsi.webp`} alt="" />
-                }
-                {
-                    data_video?.['VIDEO_SYSTEM'] &&
+                {data_video?.['IMAGE'] && (
+                    <img
+                        className={`img_advice`}
+                        src={
+                            data_video?.['IMAGE']
+                                ? data_video?.['IMAGE']
+                                : `./assets/images/bacsi.webp`
+                        }
+                        alt=""
+                    />
+                )}
+                {data_video?.['VIDEO_SYSTEM'] && (
                     <video
                         className={'video_advice'}
                         width="100%"
@@ -69,20 +79,19 @@ function Advice({data_video}) {
                     >
                         <source src={data_video['VIDEO_SYSTEM']} type="video/mp4" />
                     </video>
-                }
-                {
-                    data_video?.['VIDEO_YOUTUBE'] &&
+                )}
+                {data_video?.['VIDEO_YOUTUBE'] && (
                     <iframe
                         width="100%"
                         height="300px"
-                        src={`https://www.youtube.com/embed/${idYoutube}?autoplay=1`}
+                        src={`https://www.youtube.com/embed/${idYoutube}`}
                         title="YouTube video player"
                         frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                         className={'video_advice'}
                     />
-                }
+                )}
                 {/*<img className={'img_advice'} src={'./assets/images/bacsi.webp'} />*/}
                 <div className={`container_content ${isVisible && 'show_right'}`}>
                     <p>
@@ -183,7 +192,7 @@ function Advice({data_video}) {
                     margin-bottom: 15px;
                 }
                 .video_advice {
-                  border-radius: 20px;
+                    border-radius: 20px;
                     object-fit: cover;
                     width: 50%;
                     text-align: center;
@@ -221,24 +230,24 @@ function Advice({data_video}) {
                     font-weight: 800;
                 }
                 .root2_item1 {
-                    border: 1px solid #1c7430 !important;
+                    border: 1px solid #013b34 !important;
                     border-radius: 20px;
-                    color: #0b2e13;
+                    color: #013b34;
                     margin: 12px 20px;
                     width: 175px;
                     text-align: center;
                 }
                 .root2_title {
-                    background-color: #1e7e34;
+                    background-color: #013b34;
                     color: wheat;
-                    border: 1px solid #1c7430 !important;
+                    border: 1px solid #013b34 !important;
                 }
                 .custom_title::before {
                     position: absolute;
                     content: '';
                     width: 7%;
                     height: 2px;
-                    background-color: #1bb580;
+                    background-color: #013b34;
                     margin: 0 auto;
                     bottom: -10px;
                     left: 50%;
@@ -250,8 +259,8 @@ function Advice({data_video}) {
                         font-size: 25px !important;
                     }
                     .video_advice {
-                      height: 100%;
-                      width: 90%;
+                        height: 100%;
+                        width: 90%;
                     }
                     .root2_item1 {
                         width: 145px;

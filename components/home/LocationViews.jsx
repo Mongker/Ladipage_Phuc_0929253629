@@ -60,7 +60,7 @@ function LocationView({ data_location }) {
                                   '                            hóa, tim mạch và tốt cho phụ nữ có thai.'}
                         </p>
                         <div className="btnStyle regisCar">
-                            <a href="#registration">
+                            <a href="#aboutUs">
                                 <button className="button">
                                     Đăng ký xe khách tham quan <i className="fas fa-arrow-right" />
                                 </button>

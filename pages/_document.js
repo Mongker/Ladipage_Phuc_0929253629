@@ -18,6 +18,10 @@ export default function Document() {
                 <script src="/assets/js/slick.min.js" />
                 <script src="/assets/js/sweetalert.min.js" />
                 <script src="/assets/js/script.js" />
+                <script
+                    id="facebook-jssdk"
+                    src="https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js"
+                />
             </Head>
             <body>
                 <Main />

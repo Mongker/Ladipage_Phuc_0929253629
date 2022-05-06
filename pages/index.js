@@ -74,6 +74,26 @@ export default function Home({
 
     useEffect(() => {
         let timer1 = setTimeout(() => setIsOpen(true), 5000);
+        if (typeof window !== 'undefined') {
+            (function (d, s, id) {
+                var js,
+                    fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            })(document, 'script', 'facebook-jssdk');
+            const chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute('page_id', '115869984355757');
+            chatbox.setAttribute('attribution', 'biz_inbox');
+            window.fbAsyncInit = function () {
+                FB?.init({
+                    xfbml: true,
+                    version: 'v13.0',
+                });
+            };
+        }
         return () => {
             clearTimeout(timer1);
         };
@@ -158,7 +178,7 @@ export default function Home({
                     </div>
                 </div>
                 <a id={'id_scroll'} ref={refElementA} />
-                <HeaderView data_header={data_header} setIsOpen={setIsOpen} />
+                <HeaderView isOpent={isOpen} data_header={data_header} setIsOpen={setIsOpen} />
                 <BannerView />
                 <AboutUs data_video={data_video} isOpen={isOpen} />
                 <OverView data_overview={data_overview} />
@@ -173,6 +193,8 @@ export default function Home({
                 <ModalRegistration isOpen={isOpen} setIsOpen={setIsOpen} />
                 <div className={'ifc'} />
                 <NotificationContainer />
+                <div id="fb-root" />
+                <div id="fb-customer-chat" className="fb-customerchat" />
             </div>
             <style jsx global>{`
                 .show_left {
