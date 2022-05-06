@@ -15,7 +15,7 @@ function usePostData(setIsOpen = () => null) {
             PHONE: phone,
         };
         try {
-            const res = await fetch('http://localhost:1999/api/google_sheet/client', {
+            const res = await fetch('http://103.57.222.215:4040/api/google_sheet/client', {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
                 mode: 'cors', // no-cors, *cors, same-origin
                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
