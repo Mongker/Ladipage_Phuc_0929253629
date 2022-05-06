@@ -118,6 +118,7 @@ export default function Home({
                 <meta property="og:url" content="http://mandalakimboi.vn/" />
                 {/*<meta property="og:email" content="welcome@mandalahotel.com.vn" />*/}
                 <meta property="og:image" content="/assets/images/logo.png" />
+                <meta property="og:image:alt" content="Apec Mandala Retreats Kim Boi" />
                 <meta property="image" content="/assets/images/logo.png" />
             </Head>
             <div className="wrapper fw" style={{ overflowY: 'hidden' }}>
@@ -127,9 +128,7 @@ export default function Home({
                         <div className="hotline-phone-ring-circle-fill" />
                         <div className="hotline-phone-ring-img-circle">
                             <a
-                                href={`tel:0${
-                                    data_footer?.['SDT'] ? `0${data_footer['SDT']}` : ''
-                                }`}
+                                href={`tel:0${data_footer?.['SDT'] ? `${data_footer['SDT']}` : ''}`}
                                 className="pps-btn-img"
                             >
                                 <img
@@ -141,7 +140,7 @@ export default function Home({
                         </div>
                     </div>
                     <div className="hotline-bar">
-                        <a href="tel:0961323969">
+                        <a href={`tel:0${data_footer?.['SDT'] ? `${data_footer['SDT']}` : ''}`}>
                             <span className="text-hotline">
                                 {data_footer?.['SDT'] ? `0${data_footer['SDT']}` : ''}
                             </span>
