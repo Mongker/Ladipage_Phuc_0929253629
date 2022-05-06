@@ -18,7 +18,7 @@ import Advice from '../components/home/Advice';
 const ModalRegistration = dynamic(import('../components/modal/ModalRegistration'), { ssr: false });
 
 async function getDataGoogleSheet(id = '/') {
-    const res = await fetch(`http://103.57.222.215:4040/api/google_sheet/client${id}`);
+    const res = await fetch(`http://mandalakimboi.vn:4040//api/google_sheet/client${id}`);
     return await res.json();
 }
 

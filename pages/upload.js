@@ -18,7 +18,7 @@ export default function PrivatePage(props) {
         const body = new FormData();
         body.append('file', image);
         body.append('name_key', 'zipsos');
-        const res = await fetch('http://103.57.222.215:4040/api/file-public/upload', {
+        const res = await fetch('http://mandalakimboi.vn:4040//api/file-public/upload', {
             method: 'POST',
             body,
         });
@@ -56,7 +56,7 @@ export default function PrivatePage(props) {
                             }}
                         >
                             <a
-                                href={`http://103.57.222.215:4040${data?.fileNameInServer}`}
+                                href={`http://mandalakimboi.vn:4040/${data?.fileNameInServer}`}
                                 target="_blank"
                             >
                                 {data?.fileNameInServer}
@@ -66,7 +66,7 @@ export default function PrivatePage(props) {
                 )}
                 <input type="file" name="myImage" onChange={uploadToClient} />
                 <CopyToClipboard
-                    text={`http://103.57.222.215:4040
+                    text={`http://mandalakimboi.vn:4040/
                     ${data?.fileNameInServer}`}
                     onCopy={() => alert('Copy thành công')}
                 >

@@ -9,13 +9,13 @@ function usePostData(setIsOpen = () => null) {
     const handleNotification = () => NotificationManager.success('Thành công', '', 2000);
 
     const postData = async () => {
-        //  http://103.57.222.215:4040/api/google_sheet/client
+        //  http://mandalakimboi.vn:4040//api/google_sheet/client
         const data = {
             NAME: name,
             PHONE: phone,
         };
         try {
-            const res = await fetch('http://103.57.222.215:4040/api/google_sheet/client', {
+            const res = await fetch('http://mandalakimboi.vn:4040//api/google_sheet/client', {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
                 mode: 'cors', // no-cors, *cors, same-origin
                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
