@@ -18,7 +18,7 @@ export default function PrivatePage(props) {
         const body = new FormData();
         body.append('file', image);
         body.append('name_key', 'zipsos');
-        const res = await fetch('http://mandalakimboi.vn:4040//api/file-public/upload', {
+        const res = await fetch('http://mandalakimboi.vn:4040/api/file-public/upload', {
             method: 'POST',
             body,
         });
