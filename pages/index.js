@@ -85,7 +85,10 @@ export default function Home({
                 fjs.parentNode.insertBefore(js, fjs);
             })(document, 'script', 'facebook-jssdk');
             const chatbox = document.getElementById('fb-customer-chat');
-            chatbox.setAttribute('page_id', '806932376075524');
+            chatbox.setAttribute(
+                'page_id',
+                data_footer['ID_FACEBOOK'] ? data_footer['ID_FACEBOOK'] : '806932376075524',
+            );
             chatbox.setAttribute('attribution', 'biz_inbox');
             window.fbAsyncInit = function () {
                 FB?.init({
@@ -93,6 +96,7 @@ export default function Home({
                     version: 'v13.0',
                 });
             };
+            window.fbAsyncInit();
         }
         return () => {
             clearTimeout(timer1);
