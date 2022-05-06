@@ -122,7 +122,7 @@ export default function Home({
                     content="https://mandalakimboi.vn/assets/images/logo.png"
                 />
                 <meta property="og:image:alt" content="Apec Mandala Retreats Kim Boi" />
-                <meta property="image" content="https://mandalakimboi.vn/assets/images/logo.png" />
+                <meta property="image" content="http://mandalakimboi.vn/assets/images/logo.png" />
             </Head>
             <div className="wrapper fw" style={{ overflowY: 'hidden' }}>
                 <div className="hotline-phone-ring-wrap">
