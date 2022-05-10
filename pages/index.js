@@ -38,6 +38,7 @@ export async function getStaticProps() {
     const data_product = await getDataGoogleSheet('/1318880518'); // Product
     const data_video_advice = await getDataGoogleSheet('/1226334748'); // Video Advice
     const data_footer = await getDataGoogleSheet('/356671284'); // Video Advice
+    const data_seo = await getDataGoogleSheet('/980617706'); // Video Advice
 
     return {
         props: {
@@ -49,6 +50,7 @@ export async function getStaticProps() {
             data_product,
             data_video_advice,
             data_footer,
+            data_seo,
         },
         revalidate: 100,
     };
@@ -62,7 +64,7 @@ export default function Home({
     data_section_slide,
     data_product,
     data_video_advice,
-    data_footer,
+    data_footer, data_seo,
 }) {
     const [isOpen, _setIsOpen] = useState(false);
 
@@ -110,19 +112,19 @@ export default function Home({
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <title>Apec Mandala Retreats Kim Boi</title>
-                <meta name="title" content="Apec Mandala Retreats Kim Boi" />
-                <meta name="description" content="Apec Mandala Retreats Kim Boi." />
-                <meta property="og:title" content="Apec Mandala Retreats Kim Boi" />
-                <meta property="og:description" content="Apec Mandala Retreats Kim Boi." />
+                <meta name="title" content={`${data_seo['TITLE_SEO'] ? data_seo['TITLE_SEO'] : 'Apec Mandala Retreats Kim Boi'}`} />
+                <meta name="description" content={`${data_seo['DES_SEO'] ? data_seo['DES_SEO'] : 'Apec Mandala Retreats Kim Boi'}`} />
+                <meta property="og:title" content={`${data_seo['TITLE_SEO'] ? data_seo['TITLE_SEO'] : 'Apec Mandala Retreats Kim Boi'}`} />
+                <meta property="og:description" content={`${data_seo['DES_SEO'] ? data_seo['DES_SEO'] : 'Apec Mandala Retreats Kim Boi'}`} />
                 <meta property="og:type" content="Website" />
                 <meta property="og:url" content="https://mandalakimboi.vn/" />
                 {/*<meta property="og:email" content="welcome@mandalahotel.com.vn" />*/}
                 <meta
                     property="og:image"
-                    content="https://mandalakimboi.vn/assets/images/logo.png"
+                    content={`${data_seo['IMAGE_SEO'] ? data_seo['IMAGE_SEO'] : 'https://mandalakimboi.vn/assets/images/logo.png'}`}
                 />
                 <meta property="og:image:alt" content="Apec Mandala Retreats Kim Boi" />
-                <meta property="image" content="https://mandalakimboi.vn/assets/images/logo.png" />
+                <meta property="image" content={`${data_seo['IMAGE_SEO'] ? data_seo['IMAGE_SEO'] : 'https://mandalakimboi.vn/assets/images/logo.png'}`} />
             </Head>
             <div className="wrapper fw" style={{ overflowY: 'hidden' }}>
                 <div className="hotline-phone-ring-wrap">
