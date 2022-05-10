@@ -18,7 +18,7 @@ import Advice from '../components/home/Advice';
 const ModalRegistration = dynamic(import('../components/modal/ModalRegistration'), { ssr: false });
 
 async function getDataGoogleSheet(id = '/') {
-    const res = await fetch(`http://mandalakimboi.vn:4040/api/google_sheet/client${id}`);
+    const res = await fetch(`https://mandalakimboi.vn/api/google_sheet/client${id}`);
     return await res.json();
 }
 
@@ -50,7 +50,7 @@ export async function getStaticProps() {
             data_video_advice,
             data_footer,
         },
-        revalidate: 10,
+        revalidate: 100,
     };
 }
 
@@ -122,7 +122,7 @@ export default function Home({
                     content="https://mandalakimboi.vn/assets/images/logo.png"
                 />
                 <meta property="og:image:alt" content="Apec Mandala Retreats Kim Boi" />
-                <meta property="image" content="http://mandalakimboi.vn/assets/images/logo.png" />
+                <meta property="image" content="https://mandalakimboi.vn/assets/images/logo.png" />
             </Head>
             <div className="wrapper fw" style={{ overflowY: 'hidden' }}>
                 <div className="hotline-phone-ring-wrap">

@@ -15,7 +15,7 @@ function usePostData(setIsOpen = () => null) {
             PHONE: phone,
         };
         try {
-            const res = await fetch('http://mandalakimboi.vn:4040/api/google_sheet/client', {
+            const res = await fetch('https://mandalakimboi.vn/api/google_sheet/client', {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
                 mode: 'cors', // no-cors, *cors, same-origin
                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached

@@ -27,20 +27,18 @@ function FooterView({ data_footer }) {
                             </a>
                         </h1>
                     </div>
-                    <div className="col-xs-15 col-sm-15 col-md-15 col-lg-15 formCol">
+                    <div className="col-xs-15 col-sm-15 col-md-15 col-lg-15 formCol formBreak">
                         <h6 className="titleFooter">ĐỊA CHỈ DỰ ÁN</h6>
                         <p>
-                            <i className="fas fa-map-marker-alt"></i>
                             {data_footer?.['DIA_CHI']
                                 ? data_footer['DIA_CHI']
                                 : ' Xóm Mớ Đá, xã Hạ Bì, huyện Kim\n' +
                                   '                            Bôi, tỉnh Hòa Bình'}
                         </p>
                     </div>
-                    <div className="col-xs-15 col-sm-15 col-md-15 col-lg-15 formCol">
+                    <div className="col-xs-15 col-sm-15 col-md-15 col-lg-15 formCol formBreak">
                         <h6 className="titleFooter">hotline</h6>
                         <p>
-                            <i className="fas fa-phone-alt" />
                             <a
                                 href={`tel:0${
                                     data_footer?.['SDT'] ? `0${data_footer['SDT']}` : ''
@@ -50,19 +48,23 @@ function FooterView({ data_footer }) {
                             </a>
                         </p>
                     </div>
-                    <div className="col-xs-15 col-sm-15 col-md-15 col-lg-15 formCol">
+                    <div className="col-xs-15 col-sm-15 col-md-15 col-lg-15 formCol formBreak">
                         <h6 className="titleFooter">email</h6>
                         <p>
-                            <i className="far fa-envelope" />
                             {data_footer?.['EMAIL'] ? `${data_footer['EMAIL']}` : ''}
                         </p>
                     </div>
-                    <div className="col-xs-15 col-sm-15 col-md-15 col-lg-15 formCol">
+                    <div className="col-xs-15 col-sm-15 col-md-15 col-lg-15 formCol formBreak">
                         <h6 className="titleFooter">fanpage</h6>
                         <p>{data_footer?.['FANPAGE'] ? `${data_footer['FANPAGE']}` : ''}</p>
                     </div>
                 </div>
             </div>
+            <style jsx>{`
+            .formBreak {
+                overflow-wrap: break-word;
+            }
+            `}</style>
         </footer>
     );
 }
