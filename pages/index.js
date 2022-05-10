@@ -29,6 +29,64 @@ async function getDataGoogleSheet(id = '/') {
 //     };
 // }
 
+const dataJSON = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [{
+        "@type": "WebSite",
+        "@id": "https://mandalakimboi.vn",
+        "url": "https://mandalakimboi.vn/",
+        "name": "APEC MANDALA RETREATS",
+        "description": "",
+        "potentialAction": [{
+            "@type": "SearchAction",
+            "target": "https://mandalakimboi.vn/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }],
+        "inLanguage": "en-US"
+    }, {
+        "@type": "ImageObject",
+        "@id": "https://mandalakimboi.vn/#primaryimage",
+        "inLanguage": "en-US",
+        "url": "https://mandalakimboi.vn/assets/images/logo.png",
+        "contentUrl": "https://mandalakimboi.vn/assets/images/logo.png",
+        "width": 800,
+        "height": 533,
+        "caption": "phoi-canh-mandala-kim-boi"
+    }, {
+        "@type": "WebPage",
+        "@id": "https://mandalakimboi.vn",
+        "url": "https://mandalakimboi.vn/",
+        "name": "APEC MANDALA RETREATS KIM B\u00d4I - H\u00d2A B\u00ccNH",
+        "isPartOf": {
+            "@id": "https://mandalakimboi.vn/#website"
+        },
+        "primaryImageOfPage": {
+            "@id": "https://mandalakimboi.vn/#primaryimage"
+        },
+        "datePublished": "2020-07-24T09:03:52+00:00",
+        "dateModified": "2022-04-25T03:32:40+00:00",
+        "description": "APEC Mandala Retreats Kim B\u00f4i m\u1ed9t trong nh\u1eefng d\u1ef1 \u00e1n \u0111\u1eb3ng c\u1ea5p b\u1eadc nh\u1ea5t t\u1ea1i Ho\u00e0 B\u00ecnh c\u1ee7a ch\u1ee7 \u0111\u1ea7u t\u01b0 APEC Group, v\u1edbi thi\u1ebft k\u1ebf d\u1ea1ng c\u0103n h\u1ed9 kh\u00e1ch s\u1ea1n 6 sao k\u1ebft n\u1ed1i con ng\u01b0\u1eddi v\u1edbi thi\u00ean nhi\u00ean ng\u00e0y c\u00e0ng g\u1ea7n h\u01a1n.",
+        "breadcrumb": {
+            "@id": "https://mandalakimboi.vn"
+        },
+        "inLanguage": "en-US",
+        "potentialAction": [{
+            "@type": "ReadAction",
+            "target": ["https://mandalakimboi.vn/"]
+        }]
+    }, {
+        "@type": "BreadcrumbList",
+        "@id": "https://mandalakimboi.vn",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://mandalakimboi.vn"
+            }
+        }]
+    }]
+})
+
 export async function getStaticProps() {
     const data_header = await getDataGoogleSheet('/1642400825'); // Header
     const data_video = await getDataGoogleSheet('/1310981046'); // Video
@@ -111,7 +169,7 @@ export default function Home({
                 <meta charSet="UTF-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Apec Mandala Retreats Kim Boi</title>
+                <title>{data_seo['TITLE_SEO'] ? data_seo['TITLE_SEO'] : 'Apec Mandala Retreats Kim Boi'}</title>
                 <meta name="title" content={`${data_seo['TITLE_SEO'] ? data_seo['TITLE_SEO'] : 'Apec Mandala Retreats Kim Boi'}`} />
                 <meta name="description" content={`${data_seo['DES_SEO'] ? data_seo['DES_SEO'] : 'Apec Mandala Retreats Kim Boi'}`} />
                 <meta property="og:title" content={`${data_seo['TITLE_SEO'] ? data_seo['TITLE_SEO'] : 'Apec Mandala Retreats Kim Boi'}`} />
@@ -125,6 +183,18 @@ export default function Home({
                 />
                 <meta property="og:image:alt" content="Apec Mandala Retreats Kim Boi" />
                 <meta property="image" content={`${data_seo['IMAGE_SEO'] ? data_seo['IMAGE_SEO'] : 'https://mandalakimboi.vn/assets/images/logo.png'}`} />
+
+                <meta name="robots"
+                      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:url" content="https://mandalakimboi.vn/"/>
+                <meta property="og:site_name" content="APEC MANDALA RETREATS"/>
+                <meta property="article:modified_time" content="2022-04-25T03:32:40+00:00"/>
+                <meta property="og:image:width" content="800"/>
+                <meta property="og:image:height" content="533"/>
+                <script type="application/ld+json" className="yoast-schema-graph" dangerouslySetInnerHTML={{
+                    __html: dataJSON
+                }} />
             </Head>
             <div className="wrapper fw" style={{ overflowY: 'hidden' }}>
                 <div className="hotline-phone-ring-wrap">
