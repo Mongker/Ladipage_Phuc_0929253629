@@ -26,28 +26,40 @@ function Advice({ data_video }) {
 
     const array = [
         {
-            title: 'Bước 1: Tắm tráng',
-            content: 'Tắm tráng, dội qua nước nóng và ngâm chân để quen với nước ở nhiệt độ cao.',
+            title: data_video?.['STEP1_TITLE'] ? data_video?.['STEP1_TITLE'] : 'Bước 1: Tắm tráng',
+            content: data_video?.['STEP1_CONTENT']
+                ? data_video?.['STEP1_CONTENT']
+                : 'Tắm tráng, dội qua nước nóng và ngâm chân để quen với nước ở nhiệt độ cao.',
         },
         {
-            title: 'Bước 2: Tắm khoáng nóng',
-            content:
-                'Ngâm mình thư thái giản trong các bể nước khoáng 5 - 15 phút mỗi lần, tùy sức khỏe mỗi người.',
+            title: data_video?.['STEP2_TITLE']
+                ? data_video?.['STEP2_TITLE']
+                : 'Bước 2: Tắm khoáng nóng',
+            content: data_video?.['STEP2_CONTENT']
+                ? data_video?.['STEP2_CONTENT']
+                : 'Ngâm mình thư thái giản trong các bể nước khoáng 5 - 15 phút mỗi lần, tùy sức khỏe mỗi người.',
         },
         {
-            title: 'Bước 3: Xông hơi nóng',
-            content:
-                'Xông hơi ở 80 - 85 độ C khoảng 15 phút để da sạch, thông thoáng, giúp các tinh chất khoáng thẩm thấu vào cơ thể đạt mức cao nhất.',
+            title: data_video?.['STEP3_TITLE']
+                ? data_video?.['STEP3_TITLE']
+                : 'Bước 3: Xông hơi nóng',
+            content: data_video?.['STEP3_CONTENT']
+                ? data_video?.['STEP3_CONTENT']
+                : 'Xông hơi ở 80 - 85 độ C khoảng 15 phút để da sạch, thông thoáng, giúp các tinh chất khoáng thẩm thấu vào cơ thể đạt mức cao nhất.',
         },
         {
-            title: 'Bước 4: Xông hơi lạnh',
-            content:
-                'Xông hơi lạnh hoặc ngâm mình trong bể lạnh giúp sẽ khít lỗ chân lông, làn da trở nên mềm ẩm, chống lãi hóa.',
+            title: data_video?.['STEP4_TITLE']
+                ? data_video?.['STEP4_TITLE']
+                : 'Bước 4: Xông hơi lạnh',
+            content: data_video?.['STEP4_CONTENT']
+                ? data_video?.['STEP4_CONTENT']
+                : 'Xông hơi lạnh hoặc ngâm mình trong bể lạnh giúp sẽ khít lỗ chân lông, làn da trở nên mềm ẩm, chống lãi hóa.',
         },
         {
-            title: 'Bước 5: Nghỉ ngơi',
-            content:
-                'Thấm khô cơ thể, mặc quần áo, sấy đầu, chăm sóc da, nghỉ ngơi ăn uống bổ sung dinh dưỡng cân đối và khoa học',
+            title: data_video?.['STEP5_TITLE'] ? data_video?.['STEP5_TITLE'] : 'Bước 5: Nghỉ ngơi',
+            content: data_video?.['STEP5_CONTENT']
+                ? data_video?.['STEP5_CONTENT']
+                : 'Thấm khô cơ thể, mặc quần áo, sấy đầu, chăm sóc da, nghỉ ngơi ăn uống bổ sung dinh dưỡng cân đối và khoa học',
         },
     ];
     return (
@@ -95,24 +107,28 @@ function Advice({ data_video }) {
                 {/*<img className={'img_advice'} src={'./assets/images/bacsi.webp'} />*/}
                 <div className={`container_content ${isVisible && 'show_right'}`}>
                     <p>
-                        <b>
-                            Theo thầy thuốc ưu tú, Ths., BS. Nguyễn Thị Hằng - nguyên Phó viện
-                            trưởng Viện Nghiên cứu Y dược Cổ truyền Tuệ Tĩnh, Học viện Y dược học Cổ
-                            truyền Việt Nam
+                        <b title={'ADVICE_TITLE'}>
+                            {data_video?.['ADVICE_TITLE']
+                                ? data_video?.['ADVICE_TITLE']
+                                : 'Theo thầy thuốc ưu tú, Ths., BS. Nguyễn Thị Hằng - nguyên Phó viện\n' +
+                                  '                            trưởng Viện Nghiên cứu Y dược Cổ truyền Tuệ Tĩnh, Học viện Y dược học Cổ\n' +
+                                  '                            truyền Việt Nam'}
                         </b>
                     </p>
-                    <p className={'content_advice'}>
-                        Các thành phần có lợi từ khoáng: Trong khoáng nóng có nhiều ion khoáng chất
-                        dưới dạng muối. Ví dụ, natri clorua khi tắm sẽ đọng trên da giúp hạn chế ra
-                        mồ hôi, làm ẩm da, làm ấm cơ thể từ bên trong, kích thích tuần hoàn máu,
-                        giảm căng cơ, có giá trị điều trị một số bệnh về khớp, tiêu hóa. Nồng độ pH
-                        7,14 (tính kiềm nhẹ) thể hiện khả năng sát trùng vết thương tốt. Axit
-                        metasilic (H2SiO3) và boric (HBO2) có tác dụng điều trị viêm loét đường tiêu
-                        hóa, sỏi tiết niệu và nhiều bệnh lý về da, đặc biệt ngăn ngừa, hỗ trợ điều
-                        trị bệnh lý ngoài da như chàm, vảy nến, các sẩn ngứa mạn tính… Magnesium,
-                        lithium, carbon dioxide, sulfur, calcium… trong nước khoáng nóng giúp tăng
-                        khả năng miễn dịch, chống một số bệnh lý mạn tính về xương khớp, tim mạch,
-                        hô hấp, làm chậm quá trình lão hóa, giúp tinh thần sảng khoái.
+                    <p className={'content_advice'} title={'ADVICE_CONTENT1'}>
+                        {data_video?.['ADVICE_CONTENT1']
+                            ? data_video?.['ADVICE_CONTENT1']
+                            : 'Các thành phần có lợi từ khoáng: Trong khoáng nóng có nhiều ion khoáng chất\n' +
+                              '                        dưới dạng muối. Ví dụ, natri clorua khi tắm sẽ đọng trên da giúp hạn chế ra\n' +
+                              '                        mồ hôi, làm ẩm da, làm ấm cơ thể từ bên trong, kích thích tuần hoàn máu,\n' +
+                              '                        giảm căng cơ, có giá trị điều trị một số bệnh về khớp, tiêu hóa. Nồng độ pH\n' +
+                              '                        7,14 (tính kiềm nhẹ) thể hiện khả năng sát trùng vết thương tốt. Axit\n' +
+                              '                        metasilic (H2SiO3) và boric (HBO2) có tác dụng điều trị viêm loét đường tiêu\n' +
+                              '                        hóa, sỏi tiết niệu và nhiều bệnh lý về da, đặc biệt ngăn ngừa, hỗ trợ điều\n' +
+                              '                        trị bệnh lý ngoài da như chàm, vảy nến, các sẩn ngứa mạn tính… Magnesium,\n' +
+                              '                        lithium, carbon dioxide, sulfur, calcium… trong nước khoáng nóng giúp tăng\n' +
+                              '                        khả năng miễn dịch, chống một số bệnh lý mạn tính về xương khớp, tim mạch,\n' +
+                              '                        hô hấp, làm chậm quá trình lão hóa, giúp tinh thần sảng khoái.'}
                     </p>
                 </div>
                 <div className={`container_content ${isVisible && 'show_left'}`}>
@@ -148,14 +164,16 @@ function Advice({ data_video }) {
                 </div>
 
                 <div className={`container_content ${isVisible2 && 'show_right'}`}>
-                    <p>
-                        APEC Mandala Retreats Kim Bôi tọa lạc trên mảnh đất có vị trí hòa mình cùng
-                        thiên nhiên tuyệt đẹp, nằm giữa thung lũng được bao quanh bởi những ngọn đồi
-                        sương giúp mang lại nhiều trải nhiệm tự nhiên thú vị. Đặc biệt, vị trí của
-                        dự án sở hữu lợi thế kết nối thuận lợi giữa các khu giải trí, du lịch sinh
-                        thái nổi bật của địa phương như Chỉ cách trung tâm Hà Nội 90 phút di chuyển
-                        theo tuyến 2 tuyến đường duy nhất là bạn có thể đặt chân đến thiên đường
-                        suối khoáng.
+                    <p title={'ADVICE_CONTENT2'}>
+                        {data_video?.['ADVICE_CONTENT2']
+                            ? data_video?.['ADVICE_CONTENT2']
+                            : 'APEC Mandala Retreats Kim Bôi tọa lạc trên mảnh đất có vị trí hòa mình cùng\n' +
+                              '                        thiên nhiên tuyệt đẹp, nằm giữa thung lũng được bao quanh bởi những ngọn đồi\n' +
+                              '                        sương giúp mang lại nhiều trải nhiệm tự nhiên thú vị. Đặc biệt, vị trí của\n' +
+                              '                        dự án sở hữu lợi thế kết nối thuận lợi giữa các khu giải trí, du lịch sinh\n' +
+                              '                        thái nổi bật của địa phương như Chỉ cách trung tâm Hà Nội 90 phút di chuyển\n' +
+                              '                        theo tuyến 2 tuyến đường duy nhất là bạn có thể đặt chân đến thiên đường\n' +
+                              '                        suối khoáng.'}
                     </p>
                 </div>
             </section>
