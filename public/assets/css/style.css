@@ -101,7 +101,7 @@ a {
   justify-content: center;
   position: fixed;
   z-index: 9999;
-  right: -6px;
+  right: -12.5px;
   bottom: 10px;
 }
 .scrollTop img {
@@ -152,7 +152,7 @@ a {
   -webkit-transform: translateZ(0);
   transition: visibility 0.5s;
   bottom: 0;
-  right: -6px;
+  right: -12.5px;
   display: block;
 }
 .hotline-phone-ring-1 {
