@@ -115,7 +115,7 @@ export async function getStaticProps() {
             data_news,
             data_partner,
         },
-        revalidate: 100,
+        revalidate: 120,
     };
 }
 
@@ -297,7 +297,7 @@ export default function Home({
                 }
                 .hotline-phone-zalo-wrap {
                     position: fixed;
-                    bottom: 125px;
+                    bottom: 185px;
                     right: 0;
                     z-index: 9999;
                 }
