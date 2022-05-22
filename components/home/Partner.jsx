@@ -16,7 +16,7 @@ import React from 'react';
 import useAnimation from '../hooks/useAnimation';
 // import PropTypes from 'prop-types';
 
-function Partner() {
+function Partner({data_partner}) {
     const [refAnimation, isVisible] = useAnimation();
     return (
         <section className="fw" id="partner" ref={refAnimation}>
@@ -30,36 +30,16 @@ function Partner() {
                     Đối tác phát triển dự án
                 </h5>
                 <div className={`slidePartner`}>
-                    <div className="item">
-                        <a href="#">
-                            <img className="img-fluid" src="/assets/images/apec.png" alt="" />
-                            <h6>Đơn vị phát triển dự án</h6>
-                        </a>
-                    </div>
-                    <div className="item">
-                        <a href="#">
-                            <img className="img-fluid" src="/assets/images/cenhomes.png" alt="" />
-                            <h6>Đơn vị phân phối chính thức</h6>
-                        </a>
-                    </div>
-                    <div className="item">
-                        <a href="#">
-                            <img className="img-fluid" src="/assets/images/kume.png" alt="" />
-                            <h6>Đơn vị thiết kế nội thất</h6>
-                        </a>
-                    </div>
-                    <div className="item">
-                        <a href="#">
-                            <img className="img-fluid" src="/assets/images/fuhuc.png" alt="" />
-                            <h6>Đơn vị thi công</h6>
-                        </a>
-                    </div>
-                    <div className="item">
-                        <a href="#">
-                            <img className="img-fluid" src="/assets/images/mandala.png" alt="" />
-                            <h6>Đơn vị quản lý vận hành</h6>
-                        </a>
-                    </div>
+                    {
+                        data_partner.map(item => (
+                            <div className="item" key={item._id}>
+                                <a href={item.link_blank}>
+                                    <img className="img-fluid" src={item.image_link} alt={item} />
+                                    <h6>{item.title}</h6>
+                                </a>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </section>

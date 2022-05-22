@@ -10,15 +10,16 @@ import HeaderView from '../components/home/HeaderViews';
 import SectionSlideViews from '../components/home/SectionSlideViews';
 import ProductTap from '../components/home/Product Tap';
 import FooterView from '../components/home/Footer';
-import NewsViews from '../components/home/NewsViews';
 import Partner from '../components/home/Partner';
 import Advice from '../components/home/Advice';
 // import RegistrationViews from '../components/home/RegistrationViews';
+import NewsViews from '../components/home/NewsViews';
 
 const ModalRegistration = dynamic(import('../components/modal/ModalRegistration'), { ssr: false });
+// const NewsViews = dynamic(import('../components/home/NewsViews'), { ssr: false });
 
-async function getDataGoogleSheet(id = '/') {
-    const res = await fetch(`https://mandalakimboi.vn/api/google_sheet/client${id}`);
+async function getDataGoogleSheet(id = '/', url) {
+    const res = await fetch(!url ? `https://mandalakimboi.vn/api/google_sheet/client${id}` : url);
     return await res.json();
 }
 
@@ -97,6 +98,8 @@ export async function getStaticProps() {
     const data_video_advice = await getDataGoogleSheet('/1226334748'); // Video Advice
     const data_footer = await getDataGoogleSheet('/356671284'); // Video Advice
     const data_seo = await getDataGoogleSheet('/980617706'); // Video Advice
+    const data_news = await getDataGoogleSheet('', 'https://mandalakimboi.vn/api/threads?groupId=news'); // Video Advice
+    const data_partner = await getDataGoogleSheet('', 'https://mandalakimboi.vn/api/threads?groupId=partner'); // Video Advice
 
     return {
         props: {
@@ -109,6 +112,8 @@ export async function getStaticProps() {
             data_video_advice,
             data_footer,
             data_seo,
+            data_news,
+            data_partner,
         },
         revalidate: 100,
     };
@@ -123,6 +128,7 @@ export default function Home({
     data_product,
     data_video_advice,
     data_footer, data_seo,
+    data_news, data_partner
 }) {
     const [isOpen, _setIsOpen] = useState(false);
 
@@ -264,8 +270,8 @@ export default function Home({
                 <LocationView data_location={data_location} />
                 <SectionSlideViews data_section_slide={data_section_slide} />
                 <ProductTap data_product={data_product} />
-                <NewsViews />
-                <Partner />
+                <NewsViews data_news={data_news} />
+                <Partner data_partner={data_partner} />
                 {/*<RegistrationViews />*/}
                 <Advice data_video={data_video_advice} />
                 <FooterView data_footer={data_footer} />
