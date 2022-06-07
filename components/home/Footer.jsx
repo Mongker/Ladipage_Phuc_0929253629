@@ -56,13 +56,16 @@ function FooterView({ data_footer }) {
                     </div>
                     <div className="col-xs-15 col-sm-15 col-md-15 col-lg-15 formCol formBreak">
                         <h6 className="titleFooter">fanpage</h6>
-                        <p>{data_footer?.['FANPAGE'] ? `${data_footer['FANPAGE']}` : ''}</p>
+                        <a className={'text_fage'} href={data_footer?.['LINK_FACEBOOK'] ? `${data_footer['LINK_FACEBOOK']}` : ''}>{data_footer?.['FANPAGE'] ? `${data_footer['FANPAGE']}` : ''}</a>
                     </div>
                 </div>
             </div>
             <style jsx>{`
             .formBreak {
                 overflow-wrap: break-word;
+            }
+            .text_fage {
+              color: #616161;
             }
             `}</style>
         </footer>

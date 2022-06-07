@@ -64,7 +64,7 @@ function Advice({ data_video }) {
     ];
     return (
         <>
-            <section className={'container_advice'} id={'#suggestion'} ref={refAnimation}>
+            <section className={'container_advice'} id={'suggestion'} ref={refAnimation}>
                 <div className={`title colortt1 ${isVisible && 'show_left'}`}>
                     <h1 className={'custom_title'}>Lời khuyên của chuyên gia</h1>
                 </div>
@@ -237,10 +237,10 @@ function Advice({ data_video }) {
                     justify-content: center;
                 }
                 .margin_12px_20px {
-                    margin: 12px 20px;
+                    margin: 12px 10px;
                 }
                 .padding_12px_20px {
-                    padding: 12px 20px;
+                    padding: 12px 10px;
                 }
                 .root1_text {
                     font-size: 30px;
@@ -251,7 +251,7 @@ function Advice({ data_video }) {
                     border: 1px solid #013b34 !important;
                     border-radius: 20px;
                     color: #013b34;
-                    margin: 12px 20px;
+                    margin: 12px 10px;
                     width: 175px;
                     text-align: center;
                 }

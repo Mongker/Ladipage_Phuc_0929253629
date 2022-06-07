@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from 'next/document';
-
 export default function Document() {
     return (
         <Html>
@@ -22,6 +21,7 @@ export default function Document() {
                     id="facebook-jssdk"
                     src="https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js"
                 />
+                <script async src="https://www.googletagmanager.com/gtag/js?id=UA-230289602-1" />
             </Head>
             <body>
                 <Main />
